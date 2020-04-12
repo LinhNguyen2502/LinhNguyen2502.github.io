@@ -47,9 +47,13 @@ class AdminProductController extends Controller
 
     public function store(AdminRequestProduct $request)
     {
-        $data = $request->except('_token','pro_avatar','attribute','keywords','file');
+        $data = $request->except('_token','pro_avatar','attribute','keywords','file','pro_sale');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['created_at']   = Carbon::now();
+        if ($request->pro_sale)
+		{
+			$data['pro_sale'] = $request->pro_sale;
+		}
         
         if ($request->pro_avatar) {
             $image = upload_image('pro_avatar');
@@ -109,9 +113,13 @@ class AdminProductController extends Controller
     public function update(AdminRequestProduct $request, $id)
     {
         $product           = Product::find($id);
-        $data               = $request->except('_token','pro_avatar','attribute','keywords','file');
+        $data               = $request->except('_token','pro_avatar','attribute','keywords','file','pro_sale');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['updated_at'] = Carbon::now();
+		if ($request->pro_sale)
+		{
+			$data['pro_sale'] = $request->pro_sale;
+		}
 
         if ($request->pro_avatar) {
             $image = upload_image('pro_avatar');

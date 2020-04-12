@@ -14,7 +14,6 @@
         Route::get('profile','AdminProfileController@index')->name('admin.profile.index');
         Route::post('profile/{id}','AdminProfileController@update')->name('admin.profile.update');
 
-
         /**
          * Route danh mục sản phẩm
          **/
@@ -188,4 +187,8 @@
 
             Route::get('delete/{id}','AdminStaticController@delete')->name('admin.static.delete');
         });
+
+//        Route::group(['prefix' => 'setting'], function(){
+//			Route::get('','AdminSettingController@index')->name('admin.setting.index');
+//		});
     });
