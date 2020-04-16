@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\TransactionInvoiceExport;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -85,4 +86,21 @@ class UserTransactionController extends Controller
             ->where('od_transaction_id', $transactionID)
             ->get();
     }
+
+	/**
+	 * @param $id
+	 * export hoa don cho user
+	 */
+    public function exportInvoiceTransaction($id)
+	{
+		$transaction = Transaction::with('admin:id,name')->where('id', $id)->first();
+		$orders = Order::with('product:id,pro_name,pro_slug,pro_avatar')
+			->where('od_transaction_id', $id)
+			->get();
+
+		$html =  view('user.include._inc_invoice_transaction',compact('transaction','orders'))->render();
+		return response()->json(['html' => $html]);
+
+//		return \Excel::download(new TransactionInvoiceExport($transaction), 'don-hang.xlsx');
+	}
 }

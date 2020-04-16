@@ -4,6 +4,7 @@
 namespace App\Services\ShoppingCartService;
 
 
+use App\Mail\TransactionSuccess;
 use App\Models\Order;
 use App\Models\Transaction;
 
@@ -11,10 +12,11 @@ class PayTransferService extends PayBaseService implements PayServiceInterface
 {
     protected $data;
     protected $idTransaction;
-
-    public function __construct($data)
+	protected $shopping;
+    public function __construct($data, $shopping)
     {
         $this->data = $data;
+        $this->shopping = $shopping;
         $this->saveTransaction();
     }
 
@@ -26,7 +28,7 @@ class PayTransferService extends PayBaseService implements PayServiceInterface
         if ($this->idTransaction)
             $this->syncOrder($orders, $this->idTransaction);
 
-        // Mail::to($request->tst_email)->send(new TransactionSuccess($shopping));
+//        \Mail::to($this->data['tst_email'])->send(new TransactionSuccess($this->shopping));
         return $this->idTransaction;
     }
 }

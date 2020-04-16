@@ -29,6 +29,7 @@ class MinifyHtml extends PageSpeed
 
         ];
 
+//        return $buffer;
         return $this->replace($replace, $buffer);
     }
 }

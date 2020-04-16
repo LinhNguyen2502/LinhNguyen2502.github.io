@@ -1,4 +1,4 @@
-<section class="top-header desktop">
+<section class="top-header desktop" style="background: {{ config('layouts.component.header-top.background') }} !important ">
     <div class="container">
         <div class="content">
             <div class="left">
@@ -18,7 +18,7 @@
         </div>
     </div>
 </section>
-<section class="top-header mobile">
+<section class="top-header mobile" style="background: {{ config('layouts.component.header-top.background') }} !important ">
     <div class="container">
         <div class="content">
             <div class="left">
@@ -38,7 +38,7 @@
 </section>
 
 <div class="commonTop">
-    <div id="headers">
+    <div id="headers" style="background: {{ config('layouts.component.menu.background') }} !important ">
         <div class="container header-wrapper">
             <!--Thay đổi-->
             <div class="logo">
@@ -85,7 +85,7 @@
                 </li>
             </ul>
 
-            <div id="menu-main" class="container" style="display: none;">
+            <div id="menu-main" class="container" style="display: block;">
                 <ul class="menu-list">
                     @foreach($categories as $item)
                     <li>

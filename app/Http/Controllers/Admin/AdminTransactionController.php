@@ -94,7 +94,7 @@ class AdminTransactionController extends Controller
         return redirect()->back();
     }
 
-    public function getAction($action, $id)
+    public function getAction(Request $request, $action, $id)
     {
         $transaction = Transaction::find($id);
         if ($transaction) {
@@ -111,9 +111,14 @@ class AdminTransactionController extends Controller
                     # code...
                     break;
             }
-
+			$transaction->tst_admin_id = get_data_user('admins');
             $transaction->save();
         }
+
+        if ($request->ajax())
+		{
+			return response()->json(['code' => 200]);
+		}
 
         return redirect()->back();
     }

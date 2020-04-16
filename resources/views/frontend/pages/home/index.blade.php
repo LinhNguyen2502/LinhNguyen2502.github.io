@@ -8,13 +8,31 @@
 
 @section('content')
 
-    <div id="content-slide">
-        <div class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
+    <div class="component-slide">
+{{--        <div id="content-slide">--}}
+{{--            <div class="spinner">--}}
+{{--                <div class="rect1"></div>--}}
+{{--                <div class="rect2"></div>--}}
+{{--                <div class="rect3"></div>--}}
+{{--                <div class="rect4"></div>--}}
+{{--                <div class="rect5"></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+        <div class="container" style="display: flex">
+            <div class="left" style="width: 250px">
+
+            </div>
+            <div class="right" style=" width: calc(100% - 250px);">
+                <div id="content-slide">
+                    <div class="spinner">
+                        <div class="rect1"></div>
+                        <div class="rect2"></div>
+                        <div class="rect3"></div>
+                        <div class="rect4"></div>
+                        <div class="rect5"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container" id="before-slide">
