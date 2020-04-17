@@ -28,7 +28,7 @@
 {{--                    @include('frontend.pages.product_detail.include._inc_album')--}}
                     <a href="{{ route('get.product.detail',$product->pro_slug . '-'.$product->id ) }}" title=""
                        class="">
-                        <img alt="" style="max-width: 100%" src="{{ pare_url_file($product->pro_avatar) }}"
+                        <img alt="" style="max-width: 100%;width: 100%;height: auto" src="{{ pare_url_file($product->pro_avatar) }}"
                              class="lazyload">
                     </a>
                 </div>
@@ -110,7 +110,10 @@
                     </div>
                 </div>
             </div>
-
+            <div class="" style="margin-bottom: 10px">
+                <h4 class="reviews-title"><b>Nội dung</b></h4>
+                {!! $product->pro_content !!}
+            </div>
             @include('frontend.pages.product_detail.include._inc_ratings')
             <div class="comments">
                 <div class="form-comment">
