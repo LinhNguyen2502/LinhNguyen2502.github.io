@@ -34,9 +34,9 @@ class CategoryController extends FrontendController
             if ($request->price) {
                 $price =  $request->price;
                 if ($price == 6) {
-                    $products->where('pro_price','>', 10000000);
+                    $products->where('pro_price','>', 1000000);
                 }else{
-                    $products->where('pro_price','<=', 1000000 * $price);
+                    $products->where('pro_price','<=', 200000 * $price);
                 }
             }
 
