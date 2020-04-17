@@ -37,7 +37,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">#</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Avatar</th>
