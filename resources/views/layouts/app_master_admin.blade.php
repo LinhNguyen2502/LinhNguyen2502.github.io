@@ -113,30 +113,37 @@
                                 <li class="header">{{ $item['name'] }}</li>
                                 @continue;
                             @endif
-                            <li class="{{ isset($item['sub']) ? "treeview" : "" }}
-                                {{ in_array(Request::segment(2),$item['list-check']) ? ' active menu-open' : '' }}">
-                                <a href="{{ isset($item['sub']) ? "#" : route($item['route']) }}">
-                                    <i class="fa {{ $item['icon'] }}"></i>
-                                    <span>{{ $item['name'] }}</span>
-                                    @if (isset($item['sub']))
-                                        <span class="pull-right-container">
-                                          <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    @endif
-                                </a>
-                                @if (isset($item['sub']))
-                                    <ul class="treeview-menu">
-                                        @foreach($item['sub'] as $li)
-                                        <li class="{{ Request::segment(2) == $li['namespace'] ? 'active' : '' }}">
-                                            <a href="{{ route($li['route']) }}">
-                                                <i class="fa {{ $li['icon'] }}"></i>
-                                                <span>{{ $li['name'] }}</span>
-                                            </a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </li>
+							@php
+								$level = get_data_user('admins');
+							@endphp
+							@if (in_array($level, $item['level']))
+								<li class="{{ isset($item['sub']) ? "treeview" : "" }}
+									{{ in_array(Request::segment(2),$item['list-check']) ? ' active menu-open' : '' }}">
+									<a href="{{ isset($item['sub']) ? "#" : route($item['route']) }}">
+										<i class="fa {{ $item['icon'] }}"></i>
+										<span>{{ $item['name'] }}</span>
+										@if (isset($item['sub']))
+											<span class="pull-right-container">
+											  <i class="fa fa-angle-left pull-right"></i>
+											</span>
+										@endif
+									</a>
+									@if (isset($item['sub']))
+										<ul class="treeview-menu">
+											@foreach($item['sub'] as $li)
+                                                @if (in_array($level, $li['level']))
+                                                    <li class="{{ Request::segment(2) == $li['namespace'] ? 'active' : '' }}">
+                                                        <a href="{{ route($li['route']) }}">
+                                                            <i class="fa {{ $li['icon'] }}"></i>
+                                                            <span>{{ $li['name'] }}</span>
+                                                        </a>
+                                                    </li>
+                                                @endif
+											@endforeach
+										</ul>
+									@endif
+								</li>
+							@endif
                         @endforeach
                         
 {{--                        @if (get_data_user('admins','level') == 1)--}}
