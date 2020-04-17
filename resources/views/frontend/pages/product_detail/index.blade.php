@@ -74,7 +74,7 @@
                                 </a>
                             </div>
                             <div class="infomation">
-                                <h2 class="infomation__title">Thông số kỹ thuật</h2>
+                                <h2 class="infomation__title">Thông tin</h2>
                                 <div class="infomation__group">
 
                                     <div class="item">
