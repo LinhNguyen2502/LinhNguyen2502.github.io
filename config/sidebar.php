@@ -113,6 +113,25 @@ return [
             ]
         ]
     ],
+	[
+        'name' => 'Kho',
+        'list-check' => ['inventory','import','export'],
+        'icon' => 'fa-shopping-cart',
+        'sub'  => [
+            [
+                'name'  => 'Nhập kho',
+                'namespace' => 'import',
+                'route' => 'admin.inventory.warehousing',
+                'icon'  => 'fa-opencart'
+            ],
+			[
+				'name'  => 'Xuất kho',
+				'namespace' => 'export',
+				'route' => 'admin.inventory.out_of_stock',
+				'icon'  => 'fa-opencart'
+			],
+        ]
+    ],
 //    [
 //        'name' => 'SystemPay',
 //        'list-check' => ['pay-in'],
@@ -129,5 +148,47 @@ return [
     [
         'name'  => 'System',
         'label' => 'true'
-    ]
+    ],
+	[
+		'name' => 'Hệ thống',
+		'list-check' => ['slide','account_admin','event','page-static','statistical'],
+		'icon' => 'fa  fa-usd',
+		'sub'  => [
+			[
+				'name'  => 'Ql Admin',
+				'route' => 'admin.account_admin.index',
+				'namespace' => 'pay-in',
+				'level'  => [1],
+				'icon'  => 'fa-circle-o'
+			],
+			[
+				'name'  => 'Ql Slide',
+				'route' => 'admin.slide.index',
+				'namespace' => 'pay-in',
+				'level'  => [1],
+				'icon'  => 'fa-circle-o'
+			],
+			[
+				'name'  => 'Ql Event',
+				'route' => 'admin.event.index',
+				'namespace' => 'pay-in',
+				'level'  => [1],
+				'icon'  => 'fa-circle-o'
+			],
+			[
+				'name'  => 'Ql Page tĩnh',
+				'route' => 'admin.static.index',
+				'namespace' => 'pay-in',
+				'level'  => [1],
+				'icon'  => 'fa-circle-o'
+			],
+			[
+				'name'  => 'Thống kê',
+				'route' => 'admin.statistical',
+				'namespace' => 'pay-in',
+				'level'  => [1],
+				'icon'  => 'fa-circle-o'
+			],
+		]
+	],
 ];

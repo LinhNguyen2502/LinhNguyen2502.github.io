@@ -1,39 +1,48 @@
 @extends('layouts.app_master_frontend')
 
 @section('css')
+    @php
+        $display_menu = config('layouts.component.cate.home.display');
+    @endphp
     <style>
 		<?php $style = file_get_contents('css/home_insights.min.css');echo $style;?>
+        #menu-main {
+            display: '{{ $display_menu }}';
+        }
     </style>
 @stop
 
 @section('content')
 
     <div class="component-slide">
-{{--        <div id="content-slide">--}}
-{{--            <div class="spinner">--}}
-{{--                <div class="rect1"></div>--}}
-{{--                <div class="rect2"></div>--}}
-{{--                <div class="rect3"></div>--}}
-{{--                <div class="rect4"></div>--}}
-{{--                <div class="rect5"></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-        <div class="container" style="display: flex">
-            <div class="left" style="width: 250px">
-
+        @if (config('layouts.pages.home.slide.with') == 'full')
+        <div id="content-slide">
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
             </div>
-            <div class="right" style=" width: calc(100% - 250px);">
-                <div id="content-slide">
-                    <div class="spinner">
-                        <div class="rect1"></div>
-                        <div class="rect2"></div>
-                        <div class="rect3"></div>
-                        <div class="rect4"></div>
-                        <div class="rect5"></div>
+        </div>
+        @else
+            <div class="container" style="display: flex">
+                <div class="left" style="width: 250px">
+
+                </div>
+                <div class="right" style=" width: calc(100% - 250px);">
+                    <div id="content-slide">
+                        <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
     <div class="container" id="before-slide">
         {{-- <div class="logo-partner">

@@ -131,6 +131,10 @@
             Route::get('','AdminRatingController@index')->name('admin.rating.index');
             Route::get('delete/{id}','AdminRatingController@delete')->name('admin.rating.delete');
         });
+        Route::group(['prefix' => 'inventory'], function(){
+            Route::get('import','AdminInventoryController@getWarehousing')->name('admin.inventory.warehousing');
+            Route::get('export','AdminInventoryController@getOutOfStock')->name('admin.inventory.out_of_stock');
+        });
 
         Route::group(['prefix' => 'menu'], function(){
             Route::get('','AdminMenuController@index')->name('admin.menu.index');
