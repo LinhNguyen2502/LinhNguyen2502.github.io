@@ -79,7 +79,8 @@ class ProductDetailController extends FrontendController
 				->first();
 
 			$viewData = [
-				'isPopupCaptcha'   => \Auth::user()->count_comment ?? 0,
+				'isPopupCaptcha'   => 0,
+//				'isPopupCaptcha'   => \Auth::user()->count_comment ?? 0,
 				'ratingDefault'    => $ratingDefault,
 				'product'          => $product,
 				'ratings'          => $ratings,
