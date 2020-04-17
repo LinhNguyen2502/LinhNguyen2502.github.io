@@ -4,30 +4,35 @@ return [
         'name' => 'Ql sản phẩm',
         'list-check' => ['attribute','category','keyword','product'],
         'icon' => 'fa fa-database',
+		'level'  => [1,2],
         'sub'  => [
             [
                 'name'  => 'Thuộc tính',
                 'namespace' => 'attribute',
                 'route' => 'admin.attribute.index',
-                'icon'  => 'fa fa-key'
+                'icon'  => 'fa fa-key',
+				'level'  => [1,2],
             ],
             [
                 'name'  => 'Danh mục',
                 'namespace' => 'category',
                 'route' => 'admin.category.index',
-                'icon'  => 'fa fa-edit'
+                'icon'  => 'fa fa-edit',
+				'level'  => [1,2],
             ],
             [
                 'name'  => 'Từ khoá',
                 'namespace' => 'keyword',
                 'route' => 'admin.keyword.index',
-                'icon'  => 'fa fa-key'
+                'icon'  => 'fa fa-key',
+				'level'  => [1,2],
             ],
             [
                 'name'  => 'Sản phẩm',
                 'namespace' => 'product',
                 'route' => 'admin.product.index',
-                'icon'  => 'fa fa-database'
+                'icon'  => 'fa fa-database',
+				'level'  => [1,2],
             ],
         ]
     ],
@@ -35,18 +40,21 @@ return [
         'name' => 'Tin tức',
         'list-check' => ['menu','article'],
         'icon' => 'fa fa-edit',
+		'level'  => [1,2],
         'sub'  => [
             [
                 'name'  => 'Menu',
                 'namespace' => 'menu',
                 'route' => 'admin.menu.index',
-                'icon'  => 'fa fa-key'
+                'icon'  => 'fa fa-key',
+				'level'  => [1,2],
             ],
             [
                 'name'  => 'Bài viết',
                 'namespace' => 'article',
                 'route' => 'admin.article.index',
-                'icon'  => 'fa fa-key'
+                'icon'  => 'fa fa-key',
+				'level'  => [1,2],
             ],
         ]
     ],
@@ -54,18 +62,21 @@ return [
 		'name' => 'Đối tác',
 		'list-check' => ['user','ncc'],
 		'icon' => 'fa fa-user',
+		'level'  => [1,2],
 		'sub'  => [
 			[
 				'name'  => 'Khách hàng',
 				'route' => 'admin.user.index',
 				'namespace' => 'user',
-				'icon'  => 'fa fa-user'
+				'icon'  => 'fa fa-user',
+				'level'  => [1,2],
 			],
 			[
 				'name'  => 'Nhà cung cấp',
 				'route' => 'admin.ncc.index',
 				'namespace' => 'user',
-				'icon'  => 'fa fa-users'
+				'icon'  => 'fa fa-users',
+				'level'  => [1,2],
 			],
 		]
 	],
@@ -104,12 +115,14 @@ return [
         'name' => 'Đơn hàng',
         'list-check' => ['transaction'],
         'icon' => 'fa-shopping-cart',
+		'level'  => [1,2],
         'sub'  => [
             [
                 'name'  => 'Danh sách',
                 'namespace' => 'transaction',
                 'route' => 'admin.transaction.index',
-                'icon'  => 'fa-opencart'
+                'icon'  => 'fa-opencart',
+				'level'  => [1,2],
             ]
         ]
     ],
@@ -117,18 +130,21 @@ return [
         'name' => 'Kho',
         'list-check' => ['inventory','import','export'],
         'icon' => 'fa-shopping-cart',
+		'level'  => [1,2],
         'sub'  => [
             [
                 'name'  => 'Nhập kho',
                 'namespace' => 'import',
                 'route' => 'admin.inventory.warehousing',
-                'icon'  => 'fa-opencart'
+                'icon'  => 'fa-opencart',
+				'level'  => [1,2],
             ],
 			[
 				'name'  => 'Xuất kho',
 				'namespace' => 'export',
 				'route' => 'admin.inventory.out_of_stock',
-				'icon'  => 'fa-opencart'
+				'icon'  => 'fa-opencart',
+				'level'  => [1,2],
 			],
         ]
     ],
@@ -153,6 +169,7 @@ return [
 		'name' => 'Hệ thống',
 		'list-check' => ['slide','account_admin','event','page-static','statistical'],
 		'icon' => 'fa  fa-usd',
+		'level'  => [1],
 		'sub'  => [
 			[
 				'name'  => 'Ql Admin',
