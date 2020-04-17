@@ -65,6 +65,7 @@ class PayBaseService
         if($orders) {
             foreach ($orders as $key => $item) {
                 $order = $this->getDataOrder($item, $transactionID);
+                $order['created_at'] = Carbon::now();
                 //1. Lưu chi tiết đơn hàng
                 Order::insert($order);
 

@@ -21,4 +21,6 @@
         Route::post('ajax-favourite/{idProduct}','UserFavouriteController@addFavourite')->name('ajax_get.user.add_favourite');
         Route::post('ajax-rating','UserRatingController@addRatingProduct')->name('ajax_post.user.rating.add');
         Route::post('captcha', 'CaptchaController@authCaptchaResume')->name('ajax_post.captcha.resume');
+        Route::get('ajax-invoice-transaction/{id}','UserTransactionController@exportInvoiceTransaction')
+			->name('ajax_get.user.invoice_transaction');
     });

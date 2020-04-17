@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequestProduct;
 use App\Models\Category;
@@ -40,9 +41,11 @@ class AdminProductController extends Controller
         $keywordOld   = [];   
 
         $attributes =  $this->syncAttributeGroup();
-        $keywords   = Keyword::all(); 
+        $keywords   = Keyword::all();
 
-        return view('admin.product.create', compact('categories','attributeOld','attributes','keywords','keywordOld'));
+        $supplier = Supplier::all();
+
+        return view('admin.product.create', compact('categories','attributeOld','attributes','keywords','keywordOld','supplier'));
     }
 
     public function store(AdminRequestProduct $request)
@@ -78,7 +81,8 @@ class AdminProductController extends Controller
         $categories = Category::all();
         $product = Product::findOrFail($id);
         $attributes =  $this->syncAttributeGroup(); 
-        $keywords   = Keyword::all(); 
+        $keywords   = Keyword::all();
+		$supplier = Supplier::all();
 
         $attributeOld = \DB::table('products_attributes')
             ->where('pa_product_id', $id)
@@ -103,6 +107,7 @@ class AdminProductController extends Controller
             'attributes'    => $attributes,
             'attributeOld'  => $attributeOld,
             'keywords'      => $keywords,
+			'supplier'		=> $supplier,
             'keywordOld'    => $keywordOld,
             'images'        => $images ?? []
         ];

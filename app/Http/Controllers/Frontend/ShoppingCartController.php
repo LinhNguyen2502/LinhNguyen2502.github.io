@@ -92,7 +92,7 @@ class ShoppingCartController extends Controller
         $options['drive'] = $request->pay;
         try{
             \Cart::destroy();
-            new PayManager($data, $options);
+            new PayManager($data, $shopping, $options);
         }catch (\Exception $exception){
             Log::error("[Errors pay shopping cart]" .$exception->getMessage());
         }

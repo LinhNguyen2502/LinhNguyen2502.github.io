@@ -6,7 +6,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="{{  route('admin.transaction.index') }}"> Transaction</a></li>
-            <li class="active"> List</a></li>
+            <li class="active"> List </li>
         </ol>
     </section>
     <!-- Main content -->
@@ -116,6 +116,7 @@
                 </div>
                 <!-- /.box-footer-->
             </div>
+        </div>
             <!-- /.box -->
     </section>
 

@@ -81,14 +81,12 @@ Route::group(['namespace' => 'Frontend'], function() {
 
     Route::get('ajax/load-document','PageStaticController@getDocumentAjax')->name('get_ajax.static.document');
     Route::get('demo/view-file','PageStaticController@getDemoViewFile');
-
-    Route::group(['prefix' => 'document'], function(){
-        Route::get('/index','DocumentController@index')->name('get.document.index');
-        Route::get('/list','DocumentController@list')->name('get.document.list');
-        Route::get('/detail','DocumentController@detail')->name('get.document.detail');
-    });
-
 });
+
+Route::group(['prefix' => 'test','namespace' => 'Test'], function(){
+	Route::get('hoa-don-ban','TestController@index');
+});
+
 
 include 'route_api.php';
 

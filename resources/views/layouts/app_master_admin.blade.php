@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu" data-widget="tree">
+                    <ul class="sidebar-menu tree" data-widget="tree">
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="">
                             <a href="/api-admin">
@@ -117,7 +117,7 @@
                                 {{ in_array(Request::segment(2),$item['list-check']) ? ' active menu-open' : '' }}">
                                 <a href="{{ isset($item['sub']) ? "#" : route($item['route']) }}">
                                     <i class="fa {{ $item['icon'] }}"></i>
-                                    {{ $item['name'] }}
+                                    <span>{{ $item['name'] }}</span>
                                     @if (isset($item['sub']))
                                         <span class="pull-right-container">
                                           <i class="fa fa-angle-left pull-right"></i>
@@ -130,7 +130,7 @@
                                         <li class="{{ Request::segment(2) == $li['namespace'] ? 'active' : '' }}">
                                             <a href="{{ route($li['route']) }}">
                                                 <i class="fa {{ $li['icon'] }}"></i>
-                                                {{ $li['name'] }}
+                                                <span>{{ $li['name'] }}</span>
                                             </a>
                                         </li>
                                         @endforeach
@@ -139,14 +139,13 @@
                             </li>
                         @endforeach
                         
-                        @if (get_data_user('admins','level') == 1)
-                            <li><a href="{{  route('admin.account_admin.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Admin</span></a></li>
-{{--                            <li><a href="{{  route('admin.setting.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Setting</span></a></li>--}}
-                            <li><a href="{{  route('admin.slide.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Slide</span></a></li>
-                            <li><a href="{{  route('admin.event.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Event</span></a></li>
-                            <li><a href="{{  route('admin.static.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Static</span></a></li>
-                            <li><a href="{{  route('admin.statistical') }}"><i class="fa fa-circle-o text-red"></i> <span>Statistical</span></a></li>
-                        @endif
+{{--                        @if (get_data_user('admins','level') == 1)--}}
+{{--                            <li><a href="{{  route('admin.account_admin.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Ql Admin</span></a></li>--}}
+{{--                            <li><a href="{{  route('admin.slide.index') }}"><i class="fa fa-circle-o text-red"></i> <span>QL Slide</span></a></li>--}}
+{{--                            <li><a href="{{  route('admin.event.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Ql Event</span></a></li>--}}
+{{--                            <li><a href="{{  route('admin.static.index') }}"><i class="fa fa-circle-o text-red"></i> <span>QL Static</span></a></li>--}}
+{{--                            <li><a href="{{  route('admin.statistical') }}"><i class="fa fa-circle-o text-red"></i> <span>Thống kê</span></a></li>--}}
+{{--                        @endif--}}
                     </ul>
                 </section>
                 <!-- /.sidebar -->

@@ -35,6 +35,7 @@
                         <th scope="col">Total</th>
                         <th scope="col">Time</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Export</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,10 +53,27 @@
                                 {{ $transaction->getStatus($transaction->tst_status)['name'] }}
                             </span>
                         </td>
+                        <td>
+                            <a href="{{ route('ajax_get.user.invoice_transaction',$transaction->id) }}" target="_blank"
+                               class="btn-xs label-success js-show-invoice_transaction" style="color: white"><i class="fa fa-save"></i> Export</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
     </section>
+@stop
+
+@section('script')
+    <div id="popup-transaction" class="modal text-center">
+        <div class="header">Hoá đơn mua hang</div>
+        <div class="content">
+
+        </div>
+        <div class="footer">
+            <a href="#" rel="modal:close" class="btn btn-pink ">Đóng</a>
+            <a href="" class="btn btn-purple js-export-pdf"> Export PDF</a>
+        </div>
+    </div>
 @stop

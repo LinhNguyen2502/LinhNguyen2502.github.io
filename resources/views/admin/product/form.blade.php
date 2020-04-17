@@ -29,6 +29,12 @@
                              <input type="number" name="pro_sale" value="{{  $product->pro_sale ?? old('pro_sale',0) }}" class="form-control" data-type="currency" placeholder="5">
                         </div>
                     </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Số lượng</label>
+                            <input type="number" name="pro_number" value="{{  $product->pro_number ?? old('pro_number',0) }}" class="form-control"  placeholder="5">
+                        </div>
+                    </div>
 {{--                    <div class="col-sm-9">--}}
 {{--                        <div class="form-group">--}}
 {{--                            <label for="tag">Keyword</label>--}}
@@ -62,6 +68,21 @@
                     </select>
                     @if ($errors->first('pro_category_id'))
                         <span class="text-danger">{{ $errors->first('pro_category_id') }}</span>
+                    @endif
+                </div>
+
+                <div class="form-group ">
+                    <label class="control-label">Nhà CC <b class="col-red">(*)</b></label>
+                    <select name="pro_supplier_id" class="form-control ">
+                        <option value="">__Click__</option>
+                        @foreach($supplier as $item)
+                            <option value="{{ $item->id }}" {{ ($product->pro_supplier_id ?? 0) == $item->id ? "selected='selected'" : "" }}>
+                                {{  $item->sl_name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @if ($errors->first('pro_supplier_id'))
+                        <span class="text-danger">{{ $errors->first('pro_supplier_id') }}</span>
                     @endif
                 </div>
             </div>
@@ -144,10 +165,10 @@
 </form>
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/js/fileinput.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/themes/fa/theme.js" type="text/javascript"></script>
+{{--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>--}}
+{{--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/js/fileinput.js" type="text/javascript"></script>--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/themes/fa/theme.js" type="text/javascript"></script>--}}
 
 {{-- <div class="box-header with-border">
         <h3 class="box-title">Album ảnh</h3>

@@ -13,6 +13,11 @@ class Transaction extends Model
     const TYPE_TRANSFER = 1;
     const TYPE_ONLINE   = 2;
 
+    const STATUS_DEFAULT = 1;
+    const STATUS_PROCESS = 2;
+    const STATUS_SUCCESS = 3;
+    const STATUS_CANCEL = -1;
+
     protected $status = [
         '1' => [
             'class' => 'default',
@@ -41,4 +46,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class,'tst_user_id','id');
     }
+
+	public function admin()
+	{
+		return $this->belongsTo(Admin::class,'tst_admin_id','id');
+	}
 }

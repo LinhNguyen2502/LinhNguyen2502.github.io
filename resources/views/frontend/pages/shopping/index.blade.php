@@ -88,12 +88,8 @@
                             <textarea name="tst_note" id="note" cols="3" style="min-height: 100px;" rows="2" class="form-control"></textarea>
                         </div>
                         <div class="btn-buy">
-                            <button class="buy1 btn btn-purple {{ \Auth::id() ? '' : 'js-show-login' }}" type="submit" name="pay" value="transfer">
+                            <button class="buy1 btn btn-purple {{ \Auth::id() ? '' : 'js-show-login' }}" style="width: 100%" type="submit" name="pay" value="transfer">
                                 Thanh toán khi nhận hàng
-                            </button>
-                            <button class="btn btn-pink" {{ get_data_user('web','balance') < str_replace(',','',\Cart::subtotal(0)) ? "disabled" : "" }}
-                            name="pay" value="online" type="submit">
-                                <span class="">Thanh toán qua ví</span>
                             </button>
                         </div>
                     </form>

@@ -57,6 +57,17 @@
             Route::get('delete/{id}','AdminAccountController@delete')->name('admin.account_admin.delete');
         });
 
+		Route::group(['prefix' => 'ncc'], function (){
+			Route::get('','AdminSupplierController@index')->name('admin.ncc.index');
+			Route::get('create','AdminSupplierController@create')->name('admin.ncc.create');
+			Route::post('create','AdminSupplierController@store');
+
+			Route::get('update/{id}','AdminSupplierController@edit')->name('admin.ncc.update');
+			Route::post('update/{id}','AdminSupplierController@update');
+
+			Route::get('delete/{id}','AdminSupplierController@delete')->name('admin.ncc.delete');
+		});
+
         Route::group(['prefix' => 'keyword'], function(){
             Route::get('','AdminKeywordController@index')->name('admin.keyword.index');
             Route::get('create','AdminKeywordController@create')->name('admin.keyword.create');
@@ -89,9 +100,8 @@
             Route::get('update/{id}','AdminUserController@edit')->name('admin.user.update');
             Route::post('update/{id}','AdminUserController@update');
 
-
             Route::get('delete/{id}','AdminUserController@delete')->name('admin.user.delete');
-
+			Route::get('ajax/transaction/{userId}','AdminUserController@transaction')->name('admin.user.transaction');
         });
 
         Route::group(['prefix' => 'transaction'], function(){
@@ -120,6 +130,10 @@
         Route::group(['prefix' => 'rating'], function(){
             Route::get('','AdminRatingController@index')->name('admin.rating.index');
             Route::get('delete/{id}','AdminRatingController@delete')->name('admin.rating.delete');
+        });
+        Route::group(['prefix' => 'inventory'], function(){
+            Route::get('import','AdminInventoryController@getWarehousing')->name('admin.inventory.warehousing');
+            Route::get('export','AdminInventoryController@getOutOfStock')->name('admin.inventory.out_of_stock');
         });
 
         Route::group(['prefix' => 'menu'], function(){
