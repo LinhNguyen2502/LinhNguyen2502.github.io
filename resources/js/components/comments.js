@@ -89,7 +89,6 @@ var Comments = {
 
             if ($this.parents('.comments-reply').length)
             {
-                console.log("list");
                 $item.parents('.comments-reply').after(html)
             }else {
                 $item.append(html);

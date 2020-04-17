@@ -54,6 +54,13 @@ class AdminAccountController extends Controller
 
     public function delete($id)
     {
-        
+        $admin = Admin::find($id);
+        if (get_data_user('admins','level') != 1)
+		{
+			return redirect()->back();
+		}
+
+        $admin->delete();
+        return redirect()->back();
     }
 }
