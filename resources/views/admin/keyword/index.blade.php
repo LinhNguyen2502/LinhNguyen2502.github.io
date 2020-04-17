@@ -6,7 +6,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="{{  route('admin.keyword.index') }}"> Keyword</a></li>
-            <li class="active"> List</a></li>
+            <li class="active"> List </li>
         </ol>
     </section>
     <!-- Main content -->
@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">#</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Hot</th>
