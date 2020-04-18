@@ -11,6 +11,7 @@ var RunCommon = {
         this.showCategory();
         this.fixTopMenu();
         this.showDropdownUser();
+        this.maintain();
     },
 
     showDropdownUser()
@@ -76,6 +77,15 @@ var RunCommon = {
 
             $(".card-img-top").show();
         }());
+    },
+
+    maintain()
+    {
+        $('.js-maintain', function (event) {
+            event.preventDefault();
+            toast.warning("Đang phát triển tính năng này");
+            return false;
+        })
     },
 
     messagesLogin()
