@@ -44,15 +44,15 @@
                         <a href="{{ route('get.email_reset_password') }}">Quên mật khẩu</a>
                         <a href="{{ route('get.register') }}">Đăng ký</a>
                     </p>
-                    <hr>
-                    <a class="btn btn-google" href="{{ route('get.login.social',['social' => 'google']) }}">
-                        <i class="fa fa-google-plus"></i> Google
-                    </a><br>
-                    <a class="btn btn-facebook" href="{{ route('get.login.social',['social' => 'facebook']) }}">
-                        <i class="fa fa-facebook"></i> Facebook
-                    </a><br>
+                    @include('auth.include._inc_social')
                 </div>
+
             </form>
         </div>
     </div>
 @endsection
+@section('script')
+    <script type="text/javascript">
+        <?php $js = file_get_contents('js/home.js');echo $js;?>
+    </script>
+@stop
