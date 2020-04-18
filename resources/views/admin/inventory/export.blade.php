@@ -13,7 +13,7 @@
 		<!-- Default box -->
 		<div class="box">
 			<div class="box-header with-border">
-				<div class="box-title">
+				{{-- <div class="box-title">
 					<form class="form-inline">
 						<input type="text" class="form-control" value="{{ Request::get('id') }}" name="id" placeholder="ID">
 						<input type="text" class="form-control" value="{{ Request::get('name') }}" name="name" placeholder="Name ...">
@@ -22,7 +22,7 @@
 							<i class="fa fa-save"></i> Export
 						</button>
 					</form>
-				</div>
+				</div> --}}
 				<div class="box-body">
 					<div class="col-md-12">
 						<table class="table">
