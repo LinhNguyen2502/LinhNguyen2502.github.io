@@ -88,6 +88,9 @@
                 </tbody>
             </table>
         </div>
+        <div style="display: block;">
+            {!! $transactions->appends($query ?? [])->links() !!}
+        </div>
     </section>
 @stop
 
