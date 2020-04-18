@@ -7,6 +7,7 @@
         Route::post('update-info','UserInfoController@saveUpdateInfo');
 
         Route::get('transaction','UserTransactionController@index')->name('get.user.transaction');
+        Route::get('transaction/cancel/{id}','UserTransactionController@cancelTransaction')->name('get.user.transaction.cancel');
         Route::get('order/view/{id}','UserTransactionController@viewOrder')->name('get.user.order');
 
         Route::get('rating','UserRatingController@index')->name('get.user.rating');

@@ -37,7 +37,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Avatar</th>
@@ -49,9 +49,9 @@
                                 
                             </tbody>
                             @if (isset($products))
-                                    @foreach($products as $product)
+                                    @foreach($products as $key => $product)
                                         <tr>
-                                            <td>{{ $product->id }}</td>
+                                            <td>{{ (($products->currentPage() - 1) * $products->perPage()) + ( $key + 1)  }}</td>
                                             <td>{{ $product->pro_name }}</td>
                                             <td>
                                                 <span class="label label-success">{{ $product->category->c_name ?? "[N\A]" }}</span>

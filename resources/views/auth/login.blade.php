@@ -32,7 +32,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="phone">Điện thoại <span class="cRed">(*)</span></label>
+                    <label for="phone">Password <span class="cRed">(*)</span></label>
                     <input name="password" id="phone" type="password" placeholder="********" class="form-control">
                     @if ($errors->first('password'))
                         <span class="text-danger">{{ $errors->first('password') }}</span>

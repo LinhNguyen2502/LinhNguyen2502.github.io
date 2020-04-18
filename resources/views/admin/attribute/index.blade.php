@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Type</th>
                                     <th>Category</th>
@@ -30,9 +30,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($attibutes))
-                                    @foreach($attibutes as $attribute)
+                                    @foreach($attibutes as $key => $attribute)
                                         <tr>
-                                            <td>{{ $attribute->id }}</td>
+                                            <td>{{ ($key + 1 ) }}</td>
                                             <td>{{ $attribute->atb_name }}</td>
                                             <td>
                                                 <span class="{{ $attribute->getType($attribute->atb_type)['class'] }}" 

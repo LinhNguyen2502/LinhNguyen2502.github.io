@@ -80,6 +80,18 @@ class UserTransactionController extends Controller
         return view('user.tracking_order', $viewData);
     }
 
+    public function cancelTransaction($id)
+    {
+        $transaction = Transaction::find($id);
+        if ($transaction)
+        {
+            $transaction->tst_status = -1;
+            $transaction->save();
+        }
+
+        return redirect()->back();
+    }
+
     protected function getOrderByTransactionID($transactionID)
     {
         return Order::with('product:id,pro_name,pro_slug,pro_avatar')

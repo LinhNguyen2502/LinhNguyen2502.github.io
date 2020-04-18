@@ -27,16 +27,16 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th style="width: 10px">ID</th>
+                                <th style="width: 10px">STT</th>
                                 <th>Name</th>
                                 <th>Comment </th>
                                 <th>Time</th>
                                 <th>Action</th>
                             </tr>
                             @if (isset($comments))
-                                @foreach($comments as $comment)
+                                @foreach($comments as $key => $comment)
                                     <tr>
-                                        <td>{{ $comment->id }}</td>
+                                        <td>{{ (($comments->currentPage() - 1) * $comments->perPage()) + ( $key + 1)  }}</td>
                                         <td>{{ $comment->user->name ?? "[N\A]" }}</td>
                                         <td>{{ $comment->cmt_content ?? "[N\A]" }}</td>
                                         <td>{{ $comment->created_at }}</td>

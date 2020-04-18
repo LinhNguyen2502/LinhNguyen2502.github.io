@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Status</th>
                                     <th>Sort</th>
@@ -31,9 +31,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($slides))
-                                    @foreach($slides as $slide)
+                                    @foreach($slides as $key => $slide)
                                         <tr>
-                                            <td>{{ $slide->id }}</td>
+                                            <td>{{ ($key + 1) }}</td>
                                             <td>{{ $slide->sd_title }}</td>
                                             <td>
                                                 @if ($slide->sd_active == 1)

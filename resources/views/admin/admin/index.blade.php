@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>SDT</th>
@@ -31,10 +31,10 @@
                                     <th>Action</th>
                                 </tr>
                             </tbody>
-                            @if ($admins)
-                                    @foreach($admins as $admin)
+                            @if (isset($admins))
+                                    @foreach($admins as $key => $admin)
                                         <tr>
-                                            <td>{{ $admin->id }}</td>
+                                            <td>{{ ($key + 1) }}</td>
                                             <td>{{ $admin->name }}</td>
                                             <td>{{ $admin->email }}</td>
                                             <td>{{ $admin->phone }}</td>

@@ -12,6 +12,7 @@ class AdminSlideController extends Controller
 {
     public function index()
     {
+		if (!check_admin()) return redirect()->route('get.admin.index');
         $slides = Slide::paginate(20);
         return view('admin.slide.index', compact('slides'));
     }

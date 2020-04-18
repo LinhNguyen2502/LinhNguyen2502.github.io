@@ -11,6 +11,7 @@ class AdminEventController extends Controller
 {
     public function index()
     {
+		if (!check_admin()) return redirect()->route('get.admin.index');
         $events = Event::get();
 
         return view('admin.event.index', compact('events'));

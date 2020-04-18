@@ -21,5 +21,8 @@ return [
 				'with' => 'full'
 			]
 		]
+	],
+	'admin' => [
+		'title' => 'Trang quản trị hệ thống website bán sách trực tuyến'
 	]
 ];

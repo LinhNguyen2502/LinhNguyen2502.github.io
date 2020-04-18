@@ -19,7 +19,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">Stt</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
@@ -27,9 +27,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($users))
-                                    @foreach($users as $user)
+                                    @foreach($users as $key => $user)
                                         <tr>
-                                            <td>{{ $user->id }}</td>
+                                            <td>{{ ($key + 1) }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>

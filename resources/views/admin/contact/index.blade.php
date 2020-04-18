@@ -18,7 +18,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
@@ -27,9 +27,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($contacts))
-                                    @foreach($contacts as $item)
+                                    @foreach($contacts as $key => $item)
                                         <tr>
-                                            <td>{{ $item->id }}</td>
+                                            <td>{{ (($contacts->currentPage() - 1) * $contacts->perPage()) + ( $key + 1)  }}</td>
                                             <td>{{ $item->c_title }}</td>
                                             <td>{{ $item->c_email }}</td>
                                             <td>{{ $item->c_phone }}</td>

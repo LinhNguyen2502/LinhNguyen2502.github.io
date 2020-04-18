@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">Stt</th>
                                     <th>Name</th>
                                     <th>Avatar</th>
                                     <th>Status</th>
@@ -31,9 +31,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if ($menus)
-                                    @foreach($menus as $menu)
+                                    @foreach($menus as $key => $menu)
                                         <tr>
-                                            <td>{{ $menu->id }}</td>
+                                            <td>{{ ($key + 1)}}</td>
                                             <td>{{ $menu->mn_name }}</td>
                                             <td>
                                                 <img src="{{ pare_url_file($menu->mn_avatar) }}" style="width: 80px;height: 80px;">

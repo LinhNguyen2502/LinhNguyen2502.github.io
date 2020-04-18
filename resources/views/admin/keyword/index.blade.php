@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Hot</th>
@@ -30,9 +30,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($keywords))
-                                    @foreach($keywords as $keyword)
+                                    @foreach($keywords as $key => $keyword)
                                         <tr>
-                                            <td>{{ $keyword->id }}</td>
+                                            <td>{{ (($keywords->currentPage() - 1) * $keywords->perPage()) + ( $key + 1)  }}</td>
                                             <td>{{ $keyword->k_name }}</td>
                                             <td>{{ $keyword->k_description }}</td>
                                             <td>
