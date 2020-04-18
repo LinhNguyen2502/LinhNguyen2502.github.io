@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\HelpersClass\Date;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Product;
@@ -30,6 +32,28 @@ class AdminStatisticalController extends Controller
                         ->limit(10)
                         ->get();
 
+        // Doanh thu ngày
+		$totalMoneyDay = Transaction::whereDay('created_at',date('d'))
+			->where('tst_status',Transaction::STATUS_SUCCESS)
+			->sum('tst_total_money');
+
+		$mondayLast = Carbon::now()->startOfWeek();
+		$sundayFirst = Carbon::now()->endOfWeek();
+		$totalMoneyWeed = Transaction::whereBetween('created_at',[$mondayLast,$sundayFirst])
+			->where('tst_status',Transaction::STATUS_SUCCESS)
+			->sum('tst_total_money');
+
+		// doanh thu thag
+		$totalMoneyMonth = Transaction::whereMonth('created_at',date('m'))
+			->where('tst_status',Transaction::STATUS_SUCCESS)
+			->sum('tst_total_money');
+
+		// doanh thu nam
+		$totalMoneyYear = Transaction::whereYear('created_at',date('Y'))
+			->where('tst_status',Transaction::STATUS_SUCCESS)
+			->sum('tst_total_money');
+
+
         // Top sản phẩm xem nhiều
         $topViewProducts = Product::orderByDesc('pro_view')
             ->limit(10)
@@ -40,7 +64,15 @@ class AdminStatisticalController extends Controller
             ->limit(10)
             ->get();
 
-        // Thống kê trạng thái đơn hàng
+        // Top mua nhiều trong tháng
+		$topProductBuyMonth = Order::with('product:id,pro_name,pro_avatar')->whereMonth('created_at',date('m'))
+			->select(\DB::raw('sum(od_qty) as quantity'))
+			->addSelect('od_product_id','od_price')
+			->groupBy('od_product_id')
+			->limit(20)
+			->orderByDesc('quantity')
+			->get();
+
         // Tiep nhan
         $transactionDefault = Transaction::where('tst_status',1)->select('id')->count();
         // dang van chuyen
@@ -109,11 +141,16 @@ class AdminStatisticalController extends Controller
         $viewData = [
             'totalTransactions'          => $totalTransactions,
             'totalUsers'                 => $totalUsers,
+			'totalMoneyDay'				 => $totalMoneyDay,
+			'totalMoneyWeed'		     => $totalMoneyWeed,
+			'totalMoneyMonth'		     => $totalMoneyMonth,
+			'totalMoneyYear'		     => $totalMoneyYear,
             'totalProducts'              => $totalProducts,
             'totalRatings'               => $totalRatings,
             'transactions'               => $transactions,
             'topViewProducts'            => $topViewProducts,
             'topPayProducts'             => $topPayProducts,
+			'topProductBuyMonth'		 => $topProductBuyMonth,
             'statusTransaction'          => json_encode($statusTransaction),
             'listDay'                    => json_encode($listDay),
             'arrRevenueTransactionMonth' => json_encode($arrRevenueTransactionMonth),
