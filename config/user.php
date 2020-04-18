@@ -27,7 +27,7 @@ return [
     ],
     [
         'name'  => 'Quản lý comments',
-        'route' => 'get.user.rating',
+        'route' => 'get.user.comment',
         'icon'  => 'fa fa-comments'
     ],
     [

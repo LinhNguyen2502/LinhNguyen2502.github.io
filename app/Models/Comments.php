@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class Comments extends Model
 {
@@ -17,5 +18,10 @@ class Comments extends Model
     public function reply()
     {
         return $this->hasMany(Comments::class,'cmt_parent_id','id');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class,'cmt_product_id');
     }
 }

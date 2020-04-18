@@ -11,6 +11,12 @@
         Route::get('order/view/{id}','UserTransactionController@viewOrder')->name('get.user.order');
 
         Route::get('rating','UserRatingController@index')->name('get.user.rating');
+        Route::get('rating/delete/{id}','UserRatingController@delete')->name('get.user.rating.delete');
+
+        Route::get('comment','UserCommentController@index')->name('get.user.comment');
+        Route::get('comment/delete/{id}','UserCommentController@delete')->name('get.user.comment.delete');
+
+
         Route::get('log-login','LogLoginUserController@index')->name('get.user.log_login');
 
         Route::get('tracking/view/{id}','UserTransactionController@getTrackingTransaction')->name('get.user.tracking_order');
