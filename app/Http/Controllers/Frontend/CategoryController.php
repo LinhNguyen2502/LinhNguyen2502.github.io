@@ -41,7 +41,7 @@ class CategoryController extends FrontendController
             }
 
             if ($request->k) $products->where('pro_name','like','%'.$request->k.'%');
-            if ($request->rv) $products->where('pro_review_star','>',$request->rv);
+            if ($request->rv) $products->where('pro_review_star',$request->rv);
             if ($request->sort) $products->orderBy('id',$request->sort);
 
             $products = $products->select('id','pro_name','pro_slug','pro_sale','pro_avatar','pro_price','pro_review_total','pro_review_star')

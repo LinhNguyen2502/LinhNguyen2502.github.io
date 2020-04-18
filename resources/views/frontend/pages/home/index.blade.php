@@ -16,15 +16,15 @@
 
     <div class="component-slide">
         @if (config('layouts.pages.home.slide.with') == 'full')
-        <div id="content-slide">
-            <div class="spinner">
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
+            <div id="content-slide">
+                <div class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
             </div>
-        </div>
         @else
             <div class="container" style="display: flex">
                 <div class="left" style="width: 250px">

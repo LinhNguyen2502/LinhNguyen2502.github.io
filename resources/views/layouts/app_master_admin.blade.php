@@ -114,7 +114,8 @@
                                 @continue;
                             @endif
 							@php
-								$level = get_data_user('admins');
+								$level = get_data_user('admins','level');
+                                // dump($level);
 							@endphp
 							@if (in_array($level, $item['level']))
 								<li class="{{ isset($item['sub']) ? "treeview" : "" }}
@@ -164,11 +165,8 @@
             </div>
             <!-- /.content-wrapper -->
             <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.4.0
-                </div>
-                <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-                reserved.
+        
+                <strong>Đồ án tốt nghiệp - 2020</strong>
             </footer>
             <div class="control-sidebar-bg"></div>
         </div>
