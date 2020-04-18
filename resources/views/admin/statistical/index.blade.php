@@ -61,6 +61,59 @@
             </div>
             <!-- /.col -->
         </div>
+        <div class="row">
+			<!-- /.col -->
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="info-box">
+					<span class="info-box-icon bg-yellow"><i class="fa fa-google-plus"></i></span>
+					<div class="info-box-content">
+						<span class="info-box-text">Doanh thu ngày</span>
+						<span class="info-box-number">{{ number_format($totalMoneyDay,0,',','.') }} <small></small></span>
+					</div>
+					<!-- /.info-box-content -->
+				</div>
+				<!-- /.info-box -->
+			</div>
+			<!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="ion ion-ios-cart-outline"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Doanh thu tuần</span>
+                        <span class="info-box-number">{{ number_format($totalMoneyWeed ,0,',','.') }}<small></small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Doanh thu tháng</span>
+                        <span class="info-box-number">{{number_format($totalMoneyMonth,0,',','.')  }} <small></small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="ion ion-ios-gear-outline"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Doanh thu năm</span>
+                        <span class="info-box-number">{{ number_format($totalMoneyYear ,0,',','.') }} <small></small></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+
+        </div>
 
     <!-- /.row -->
     <div class="row" style="margin-bottom: 15px;">
@@ -141,6 +194,54 @@
                 <!-- /.box-body -->
                 <div class="box-footer clearfix">
                     <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-right">Danh sách đơn hàng</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!-- /.box -->
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Top sản phẩm bán trong tháng</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            @foreach($topProductBuyMonth as $product)
+                                <tr>
+                                    <td>{{ $product->od_product_id }}</td>
+                                    <td>{{ $product->product->pro_name ?? "[N\A]" }}</td>
+                                    <td>
+                                        <img src="{{ pare_url_file($product->product->pro_avatar ?? "[N\A]") }}" alt="" style="width: 80px;height: 80px;">
+                                    </td>
+                                    <td>{{ $product->quantity }}</td>
+                                    <td>{{ number_format($product->od_price,0,',','.') }} VNĐ</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <a href="{{ route('admin.product.index') }}" class="btn btn-sm btn-info btn-flat pull-right">Danh sách sản phẩm</a>
                 </div>
                 <!-- /.box-footer -->
             </div>
