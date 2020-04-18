@@ -12,8 +12,10 @@ use App\Models\Product;
 
 class AdminStatisticalController extends Controller
 {
-    public function index()
+	public function index()
     {
+    	if (!check_admin()) return redirect()->route('get.admin.index');
+
         //Tổng hđơn hàng
         $totalTransactions = \DB::table('transactions')->select('id')->count();
 

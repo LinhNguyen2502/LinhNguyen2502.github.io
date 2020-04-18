@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Link</th>
                                     <th>Banner</th>
@@ -30,9 +30,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($events))
-                                    @foreach($events as $event)
+                                    @foreach($events as $key => $event)
                                         <tr>
-                                            <td>{{ $event->id }}</td>
+                                            <td>{{ ( $key + 1 ) }}</td>
                                             <td>{{ $event->e_name }}</td>
                                             <td>{{ $event->e_link }}</td>
                                             <td>

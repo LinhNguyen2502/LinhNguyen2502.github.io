@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>SDT</th>
@@ -31,9 +31,9 @@
                                 </tr>
                             </tbody>
                             @if (isset($supplieres))
-                                    @foreach($supplieres as $item)
+                                    @foreach($supplieres as  $key => $item)
                                         <tr>
-                                            <td>{{ $item->id }}</td>
+                                            <td>{{ ($key + 1) }}</td>
                                             <td>{{ $item->sl_name }}</td>
                                             <td>{{ $item->sl_email }}</td>
                                             <td>{{ $item->sl_phone }}</td>

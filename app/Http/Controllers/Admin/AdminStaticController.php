@@ -11,6 +11,7 @@ class AdminStaticController extends Controller
 {
     public function index()
     {
+		if (!check_admin()) return redirect()->route('get.admin.index');
         $statics = PageStatic::get();
         return view('admin.static.index', compact('statics'));
     }

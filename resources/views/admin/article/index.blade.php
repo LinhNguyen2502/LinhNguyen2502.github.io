@@ -22,7 +22,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th style="width: 25%">Name</th>
                                     <th>Category</th>
                                     <th>Avatar</th>
@@ -34,9 +34,10 @@
 
                             </tbody>
                             @if (isset($articles))
-                                    @foreach($articles as $article)
+                            
+                                    @foreach($articles as $key => $article)
                                         <tr>
-                                            <td>{{ $article->id }}</td>
+                                            <td>{{ (($articles->currentPage() - 1) * $articles->perPage()) + ( $key + 1)  }}</td>
                                             <td>{{ $article->a_name }}</td>
                                             <td>
                                                 <span class="label label-success">{{ $article->menu->mn_name ?? "[N\A]" }}</span>

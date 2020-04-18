@@ -13,6 +13,7 @@ class AdminAccountController extends Controller
 {
     public function index()
     {
+		if (!check_admin()) return redirect()->route('get.admin.index');
         $admins = Admin::get();
         $viewData = [
             'admins' => $admins

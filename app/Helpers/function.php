@@ -181,3 +181,11 @@ if( !function_exists('get_time_login'))
         return Arr::last($data);
     }
 }
+
+if (!function_exists('check_admin'))
+{
+	function check_admin()
+	{
+		return get_data_user('admins','level') == 1 ? true : false;
+	}
+}

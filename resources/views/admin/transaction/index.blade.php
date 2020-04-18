@@ -42,7 +42,7 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th style="width: 10px">ID</th>
+                                    <th style="width: 10px">STT</th>
                                     <th style="width: 30%">Info</th>
                                     <th>Money</th>
                                     <th>Account</th>
@@ -51,9 +51,9 @@
                                     <th>Action</th>
                                 </tr>
                                 @if (isset($transactions))
-                                    @foreach($transactions as $transaction)
+                                    @foreach($transactions as $key => $transaction)
                                         <tr>
-                                            <td>{{ $transaction->id }}</td>
+                                            <td>{{ (($transactions->currentPage() - 1) * $transactions->perPage()) + ( $key + 1)  }}</td>
                                             <td>
                                                 <ul>
                                                     <li>Name: {{ $transaction->tst_name }}</li>
