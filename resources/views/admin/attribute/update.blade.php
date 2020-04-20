@@ -30,10 +30,9 @@
                             <div class="form-group {{ $errors->first('atb_type') ? 'has-error' : '' }}">
                                 <label for="name">Group <span class="text-danger">(*)</span></label>
                                 <select class="form-control" name="atb_type">
-                                    <option value="1" {{ $attribute->atb_type == 1 ? "selected='selected'"  : '' }}>Đôi</option>
-                                    <option value="2" {{ $attribute->atb_type == 2 ? "selected='selected'"  : '' }}>Năng lượng</option>
-                                    <option value="3" {{ $attribute->atb_type == 3 ? "selected='selected'"  : '' }}>Loại dây</option>
-                                    <option value="4" {{ $attribute->atb_type == 4 ? "selected='selected'"  : '' }}>Loại Vỏ</option>
+                                    @foreach($attribute_type as $key => $type)
+                                        <option value="{{ $key }}" {{ $attribute->atb_type == $key ? "selected='selected'" : ""}}>{{ $type['name'] }}</option>
+                                    @endforeach
                                 </select>
                                 @if ($errors->first('atb_type'))
                                     <span class="text-danger">{{ $errors->first('atb_type') }}</span>
