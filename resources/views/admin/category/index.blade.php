@@ -23,6 +23,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Avatar</th>
                                     <th>Status</th>
@@ -34,6 +35,7 @@
                                     @foreach($categories as $key => $category)
                                         <tr>
                                             <td>{{ (($categories->currentPage() - 1) * $categories->perPage()) + ( $key + 1)  }}</td>
+                                            <td>{{ $category->id }}</td>
                                             <td>{{ $category->c_name }}</td>
                                             <td>
                                                 <img src="{{ pare_url_file($category->c_avatar ?? '') ?? '/images/no-image.jpg' }}" onerror="this.onerror=null;this.src='/images/no-image.jpg';"

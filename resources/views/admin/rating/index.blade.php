@@ -28,6 +28,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th> User </th>
                                     <th>Rating</th>
@@ -38,6 +39,7 @@
                                     @foreach($ratings as $key => $rating)
                                         <tr>
                                             <td>{{ (($ratings->currentPage() - 1) * $ratings->perPage()) + ( $key + 1)  }}</td>
+                                            <td>{{ $rating->id }}</td>
                                             <td>{{ $rating->product->pro_name ?? "[N\A]" }}</td>
                                             <td>{{ $rating->user->name ?? "[N\A]" }}</td>
                                             <td>

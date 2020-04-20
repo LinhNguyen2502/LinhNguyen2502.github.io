@@ -23,6 +23,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Hot</th>
@@ -33,6 +34,7 @@
                                     @foreach($keywords as $key => $keyword)
                                         <tr>
                                             <td>{{ (($keywords->currentPage() - 1) * $keywords->perPage()) + ( $key + 1)  }}</td>
+                                            <td>{{ $keyword->id }}</td>
                                             <td>{{ $keyword->k_name }}</td>
                                             <td>{{ $keyword->k_description }}</td>
                                             <td>

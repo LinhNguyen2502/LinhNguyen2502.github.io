@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="{{  asset('admin/plugins/pace/pace.min.css') }}">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
+        <link rel="icon" sizes="32x32" type="image/png" href="{{ asset('ico.png') }}" />
         <link rel="stylesheet" href="{{  asset('admin/bower_components/select2/dist/css/select2.min.css') }}">
         <!-- Google Font -->
         <link rel="stylesheet"

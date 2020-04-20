@@ -23,6 +23,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Link</th>
                                     <th>Banner</th>
@@ -33,6 +34,7 @@
                                     @foreach($events as $key => $event)
                                         <tr>
                                             <td>{{ ( $key + 1 ) }}</td>
+                                            <td>{{ $event->id }}</td>
                                             <td>{{ $event->e_name }}</td>
                                             <td>{{ $event->e_link }}</td>
                                             <td>

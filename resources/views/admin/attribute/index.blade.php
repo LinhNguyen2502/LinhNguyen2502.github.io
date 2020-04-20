@@ -2,7 +2,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Quản lý thuộc tính</h1>
+        <h1>Quản lý thông tin</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="{{  route('admin.attribute.index') }}"> Attribute</a></li>
@@ -23,6 +23,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Type</th>
                                     <th>Category</th>
@@ -33,6 +34,7 @@
                                     @foreach($attibutes as $key => $attribute)
                                         <tr>
                                             <td>{{ ($key + 1 ) }}</td>
+                                            <td>{{ $attribute->id }}</td>
                                             <td>{{ $attribute->atb_name }}</td>
                                             <td>
                                                 <span class="{{ $attribute->getType($attribute->atb_type)['class'] }}" 
