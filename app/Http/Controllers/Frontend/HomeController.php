@@ -88,6 +88,7 @@ class HomeController extends FrontendController
     {
         if ($request->ajax()) {
             $listID = $request->id;
+			array_reverse($listID);
             $products = Product::whereIn('id',$listID)
                 ->orderByDesc('id')
                 ->limit(5)

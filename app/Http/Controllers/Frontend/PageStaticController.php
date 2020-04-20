@@ -49,6 +49,7 @@ class PageStaticController extends Controller
     {
         if ($request->ajax()) {
             $listID   = $request->id;
+			array_reverse($listID);
             $products = Product::whereIn('id', $listID)
                 ->orderByDesc('id')
                 ->select('id', 'pro_name', 'pro_slug', 'pro_sale', 'pro_avatar', 'pro_price', 'pro_review_total', 'pro_review_star')
