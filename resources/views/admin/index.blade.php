@@ -27,6 +27,7 @@
                         <li>Lớp : {{ $admin->class }}</li>
                         <li>Số điện thoại : {{ $admin->phone }}</li>
                         <li>Email : {{ $admin->email }}</li>
+                        <li>Địa chỉ : {{ $admin->address }}</li>
                     </ul>
                 </div>
 
