@@ -1,5 +1,5 @@
 <div class="top">
-    <a href="#" class="main-title">SẢN PHẨM VỪA XEM</a>
+    <a href="#" class="main-title">SÁCH VỪA XEM</a>
 </div>
 <div class="bot">
     @if (isset($products))
