@@ -56,7 +56,7 @@
         </div> --}}
         <div class="product-one">
             <div class="top">
-                <a href="#" title="" class="main-title">SẢN PHẨM BÁN CHẠY</a>
+                <a href="#" title="" class="main-title">SÁCH BÁN CHẠY</a>
                 {{-- <ul class="top__tab">
                     <li data-id="proNewst1" class="active"><a href="javascript://" title="">Tất cả</a></li>
                     <li data-id="proNewst2"><a href="javascript://" title=""><h2>Đồng hồ nam</h2></a></li>
@@ -104,7 +104,7 @@
 
         <div class="product-three">
             <div class="top">
-                <a href="#" title="" class="main-title">SẢN PHẨM MỚI</a>
+                <a href="#" title="" class="main-title">SÁCH MỚI RA MẮT</a>
             </div>
             <div class="bot">
                 <div class="left">
@@ -130,7 +130,7 @@
 
         <div class="product-two">
             <div class="top">
-                <a href="#" class="main-title">SẢN PHẨM NỔI BẬT</a>
+                <a href="#" class="main-title">SÁCH NỔI BẬT</a>
             </div>
             <div class="bot">
                 @if (isset($productsHot))
