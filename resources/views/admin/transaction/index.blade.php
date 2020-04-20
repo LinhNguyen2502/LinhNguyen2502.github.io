@@ -43,6 +43,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th style="width: 30%">Info</th>
                                     <th>Money</th>
                                     <th>Account</th>
@@ -54,6 +55,7 @@
                                     @foreach($transactions as $key => $transaction)
                                         <tr>
                                             <td>{{ (($transactions->currentPage() - 1) * $transactions->perPage()) + ( $key + 1)  }}</td>
+                                            <td>{{ $transaction->id }}</td>
                                             <td>
                                                 <ul>
                                                     <li>Name: {{ $transaction->tst_name }}</li>

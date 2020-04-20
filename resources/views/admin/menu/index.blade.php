@@ -23,6 +23,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">Stt</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Avatar</th>
                                     <th>Status</th>
@@ -34,6 +35,7 @@
                                     @foreach($menus as $key => $menu)
                                         <tr>
                                             <td>{{ ($key + 1)}}</td>
+                                            <td>{{ $menu->id }}</td>
                                             <td>{{ $menu->mn_name }}</td>
                                             <td>
                                                 <img src="{{ pare_url_file($menu->mn_avatar) }}" style="width: 80px;height: 80px;">

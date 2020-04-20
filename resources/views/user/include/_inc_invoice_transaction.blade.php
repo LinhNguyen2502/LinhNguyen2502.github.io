@@ -21,10 +21,10 @@
 			<p style="margin: 0">Điện thoại <b>{{ $transaction->tst_phone }}</b></p>
 		</div>
 		<div style="text-align: left;width: 50%">
-			<p style="margin: 0">Đơn vị bán <b>Website bán mỹ phẩm online</b></p>
+			<p style="margin: 0">Đơn vị bán <b>Đồ Án Tốt Nghiệp</b></p>
 			<p style="margin: 0">Mã số thuế <b>711A25177</b></p>
-			<p style="margin: 0">Địa chỉ <b>Quỳnh Lưu - Nghệ An</b> STK <b>19034889720010</b></p>
-			<p style="margin: 0">Điện thoại <b>0986420994</b></p>
+			<p style="margin: 0">Địa chỉ <b>Hà Nội</b> STK <b>19034889720010</b></p>
+			<p style="margin: 0">Điện thoại <b>123456789</b></p>
 		</div>
 	</div>
 	<div class="table-responsive">

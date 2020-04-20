@@ -38,6 +38,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Avatar</th>
@@ -52,6 +53,7 @@
                                     @foreach($products as $key => $product)
                                         <tr>
                                             <td>{{ (($products->currentPage() - 1) * $products->perPage()) + ( $key + 1)  }}</td>
+                                            <td>{{ $product->id }}</td>
                                             <td>{{ $product->pro_name }}</td>
                                             <td>
                                                 <span class="label label-success">{{ $product->category->c_name ?? "[N\A]" }}</span>

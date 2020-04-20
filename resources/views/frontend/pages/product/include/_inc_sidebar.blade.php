@@ -34,7 +34,6 @@
                                 @for($j = 1 ; $j <= 5 ; $j ++)
                                     <i class="la la-star {{ $j <= $i ? 'active' : '' }}"></i>
                                 @endfor
-                                {{ $i < 5 ? 'Trở lên' : '' }}
                             </span>
                         </a>
                     </li>

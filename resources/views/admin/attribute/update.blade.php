@@ -2,11 +2,11 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Cập nhật thuộc tính</h1>
+        <h1>Cập nhật thông tin</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="{{  route('admin.attribute.index') }}"> Attribute</a></li>
-            <li class="active"> Update</a></li>
+            <li class="active"> Update </li>
         </ol>
     </section>
     <!-- Main content -->
@@ -45,7 +45,8 @@
                                 <label for="name">Category <span class="text-danger">(*)</span></label>
                                 <select class="form-control" name="atb_category_id">
                                     @foreach($categories as $item)
-                                        <option value="1" {{ $attribute->atb_category_id == $item->id ? "selected='selected'"  : '' }}>{{ $item->c_name }}</option>
+                                        <option value="{{ $item->id }}"
+                                                {{ $attribute->atb_category_id == $item->id ? "selected='selected'"  : '' }}>{{ $item->c_name }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->first('atb_category_id'))

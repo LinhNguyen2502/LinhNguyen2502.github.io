@@ -23,6 +23,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Status</th>
                                     <th>Sort</th>
@@ -34,6 +35,7 @@
                                     @foreach($slides as $key => $slide)
                                         <tr>
                                             <td>{{ ($key + 1) }}</td>
+                                            <td>{{ $slide->id }}</td>
                                             <td>{{ $slide->sd_title }}</td>
                                             <td>
                                                 @if ($slide->sd_active == 1)

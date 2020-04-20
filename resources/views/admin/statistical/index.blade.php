@@ -2,7 +2,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Trang quản trị hệ thống website xây dựng website bán đồng hồ</h1>
+        <h1>{{ config('layouts.admin.title') }}</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         </ol>
@@ -65,7 +65,7 @@
 			<!-- /.col -->
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-yellow"><i class="fa fa-google-plus"></i></span>
+					<span class="info-box-icon bg-yellow"><i class="fa fa-dollar"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Doanh thu ngày</span>
 						<span class="info-box-number">{{ number_format($totalMoneyDay,0,',','.') }} <small></small></span>
@@ -77,7 +77,7 @@
 			<!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-aqua"><i class="ion ion-ios-cart-outline"></i></span>
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-dollar"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Doanh thu tuần</span>
                         <span class="info-box-number">{{ number_format($totalMoneyWeed ,0,',','.') }}<small></small></span>
@@ -89,7 +89,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
+                    <span class="info-box-icon bg-red"><i class="fa fa-dollar"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Doanh thu tháng</span>
                         <span class="info-box-number">{{number_format($totalMoneyMonth,0,',','.')  }} <small></small></span>
@@ -103,7 +103,7 @@
             <div class="clearfix visible-sm-block"></div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="ion ion-ios-gear-outline"></i></span>
+                    <span class="info-box-icon bg-green"><i class="fa fa-dollar"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Doanh thu năm</span>
                         <span class="info-box-number">{{ number_format($totalMoneyYear ,0,',','.') }} <small></small></span>

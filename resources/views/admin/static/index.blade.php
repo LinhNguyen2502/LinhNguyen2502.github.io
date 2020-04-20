@@ -23,6 +23,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Type</th>
                                     <th>Time</th>
@@ -32,6 +33,7 @@
                                     @foreach($statics as $key => $static)
                                         <tr>
                                             <td>{{ ($key + 1) }}</td>
+                                            <td>{{ $static->id }}</td>
                                             <td>{{ $static->s_title }}</td>
                                             <td>{{ $static->getType($static->s_type) }}</td>
                                             <td>{{  $static->created_at }}</td>

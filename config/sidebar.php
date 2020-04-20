@@ -7,7 +7,7 @@ return [
 		'level'  => [1,2],
         'sub'  => [
             [
-                'name'  => 'Thuộc tính',
+                'name'  => 'Thông tin',
                 'namespace' => 'attribute',
                 'route' => 'admin.attribute.index',
                 'icon'  => 'fa fa-key',
@@ -20,13 +20,13 @@ return [
                 'icon'  => 'fa fa-edit',
 				'level'  => [1,2],
             ],
-            [
-                'name'  => 'Từ khoá',
-                'namespace' => 'keyword',
-                'route' => 'admin.keyword.index',
-                'icon'  => 'fa fa-key',
-				'level'  => [1,2],
-            ],
+//            [
+//                'name'  => 'Từ khoá',
+//                'namespace' => 'keyword',
+//                'route' => 'admin.keyword.index',
+//                'icon'  => 'fa fa-key',
+//				'level'  => [1,2],
+//            ],
             [
                 'name'  => 'Sản phẩm',
                 'namespace' => 'product',

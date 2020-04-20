@@ -61,7 +61,7 @@
                     <select name="pro_category_id" class="form-control ">
                         <option value="">__Click__</option>
                         @foreach($categories as $category)
-                            <option value="{{ $category->id }}" {{ ($product->pro_category_id ?? 0) == $category->id ? "selected='selected'" : "" }}>
+                            <option value="{{ $category->id }}" {{ ($product->pro_category_id ?? '') == $category->id ? "selected='selected'" : "" }}>
                                 {{  $category->c_name }}
                             </option>
                         @endforeach
@@ -107,27 +107,27 @@
                 @endforeach
             </div>
             <hr>
-            <div class="box-header with-border">
-                <h3 class="box-title">Album ảnh</h3>
-            </div>
-            <div class="box-body">
-                @if (isset($images))
-                    <div class="row" style="margin-bottom: 15px;">
-                        @foreach($images as $item)
-                            <div class="col-sm-2">
-                                <a href="{{ route('admin.product.delete_image', $item->id) }}" style="display: block;">
-                                    <img src="{{ pare_url_file($item->pi_slug) }}" style="width: 100%;height: auto">
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-                 <div class="form-group">
-                    <div class="file-loading">
-                        <input id="images" type="file" name="file[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="0">
-                    </div>
-                </div>
-            </div>
+{{--            <div class="box-header with-border">--}}
+{{--                <h3 class="box-title">Album ảnh</h3>--}}
+{{--            </div>--}}
+{{--            <div class="box-body">--}}
+{{--                @if (isset($images))--}}
+{{--                    <div class="row" style="margin-bottom: 15px;">--}}
+{{--                        @foreach($images as $item)--}}
+{{--                            <div class="col-sm-2">--}}
+{{--                                <a href="{{ route('admin.product.delete_image', $item->id) }}" style="display: block;">--}}
+{{--                                    <img src="{{ pare_url_file($item->pi_slug) }}" style="width: 100%;height: auto">--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                    </div>--}}
+{{--                @endif--}}
+{{--                 <div class="form-group">--}}
+{{--                    <div class="file-loading">--}}
+{{--                        <input id="images" type="file" name="file[]" multiple class="file" data-overwrite-initial="false" data-min-file-count="0">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         <div class="box box-warning">
             <div class="box-header with-border">

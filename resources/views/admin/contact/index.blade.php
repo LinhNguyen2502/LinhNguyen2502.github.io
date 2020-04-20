@@ -19,6 +19,7 @@
                             <tbody>
                                 <tr>
                                     <th style="width: 10px">STT</th>
+                                    <th style="width: 10px">ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
@@ -30,6 +31,7 @@
                                     @foreach($contacts as $key => $item)
                                         <tr>
                                             <td>{{ (($contacts->currentPage() - 1) * $contacts->perPage()) + ( $key + 1)  }}</td>
+                                            <td>{{ $item->id }}</td>
                                             <td>{{ $item->c_title }}</td>
                                             <td>{{ $item->c_email }}</td>
                                             <td>{{ $item->c_phone }}</td>
