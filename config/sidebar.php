@@ -2,7 +2,7 @@
 return [
     [
         'name' => 'Ql sản phẩm',
-        'list-check' => ['attribute','category','keyword','product'],
+        'list-check' => ['attribute','category','keyword','product','comment','rating'],
         'icon' => 'fa fa-database',
 		'level'  => [1,2],
         'sub'  => [
@@ -32,6 +32,20 @@ return [
                 'namespace' => 'product',
                 'route' => 'admin.product.index',
                 'icon'  => 'fa fa-database',
+				'level'  => [1,2],
+            ],
+			[
+                'name'  => 'Rating',
+                'namespace' => 'rating',
+                'route' => 'admin.rating.index',
+                'icon'  => 'fa fa-star',
+				'level'  => [1,2],
+            ],
+			[
+                'name'  => 'Comment',
+                'namespace' => 'comment',
+                'route' => 'admin.comment.index',
+                'icon'  => 'fa fa-star',
 				'level'  => [1,2],
             ],
         ]
