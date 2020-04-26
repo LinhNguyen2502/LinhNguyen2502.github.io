@@ -2,12 +2,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Thêm mới E</h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="{{  route('admin.slide.index') }}"> E</a></li>
-            <li class="active"> Create</a></li>
-        </ol>
+        <h1>Thêm mới sự kiện</h1>
     </section>
     <!-- Main content -->
     <section class="content">

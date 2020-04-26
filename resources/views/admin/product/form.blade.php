@@ -8,7 +8,7 @@
             <div class="box-body">
                 <div class="form-group ">
                     <label for="exampleInputEmail1">Name</label>
-                    <input type="text" class="form-control" name="pro_name" placeholder="Iphone 5s ...." autocomplete="off" value="{{  $product->pro_name ?? old('pro_name') }}">
+                    <input type="text" class="form-control" name="pro_name" placeholder="Sản phẩm ...." autocomplete="off" value="{{  $product->pro_name ?? old('pro_name') }}">
                     @if ($errors->first('pro_name'))
                         <span class="text-danger">{{ $errors->first('pro_name') }}</span>
                     @endif
@@ -48,13 +48,13 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
                 </div>
-                <div class="form-group ">
+                {{-- <div class="form-group ">
                     <label for="exampleInputEmail1">Description</label>
                     <textarea name="pro_description" class="form-control" cols="5" rows="2" autocomplete="off">{{  $product->pro_description ?? old('pro_description') }}</textarea>
                     @if ($errors->first('pro_description'))
                         <span class="text-danger">{{ $errors->first('pro_description') }}</span>
                     @endif
-                </div>
+                </div> --}}
 
                 <div class="form-group ">
                     <label class="control-label">Danh mục <b class="col-red">(*)</b></label>

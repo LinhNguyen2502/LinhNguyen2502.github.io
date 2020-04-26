@@ -35,14 +35,14 @@ return [
 				'level'  => [1,2],
             ],
 			[
-                'name'  => 'Rating',
+                'name'  => 'Đánh giá',
                 'namespace' => 'rating',
                 'route' => 'admin.rating.index',
                 'icon'  => 'fa fa-star',
 				'level'  => [1,2],
             ],
 			[
-                'name'  => 'Comment',
+                'name'  => 'Bình luận',
                 'namespace' => 'comment',
                 'route' => 'admin.comment.index',
                 'icon'  => 'fa fa-star',
@@ -200,7 +200,7 @@ return [
 				'icon'  => 'fa-circle-o'
 			],
 			[
-				'name'  => 'Ql Event',
+				'name'  => 'Ql sự kiện',
 				'route' => 'admin.event.index',
 				'namespace' => 'pay-in',
 				'level'  => [1],
