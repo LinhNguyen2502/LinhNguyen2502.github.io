@@ -92,6 +92,13 @@ return [
 				'icon'  => 'fa fa-users',
 				'level'  => [1,2],
 			],
+            [
+               'name'  => 'Liên hệ',
+               'namespace' => 'contact',
+               'route' => 'admin.contact',
+               'icon'  => 'fa fa-star',
+               'level'  => [1,2],
+           ],
 		]
 	],
 //    [
@@ -117,12 +124,7 @@ return [
 //                'route' => 'admin.comment.index',
 //                'icon'  => 'fa fa-star'
 //            ],
-//            [
-//                'name'  => 'Contact',
-//                'namespace' => 'contact',
-//                'route' => 'admin.contact',
-//                'icon'  => 'fa fa-star'
-//            ],
+
 //        ]
 //    ],
     [
