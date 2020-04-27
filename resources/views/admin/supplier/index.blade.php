@@ -2,10 +2,10 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Quản lý NCC</h1>
+        <h1>Quản lý nhà cung cấp</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="{{  route('admin.ncc.index') }}"> NCC</a></li>
+            <li><a href="{{  route('admin.ncc.index') }}"> Nhà cung cấp</a></li>
             <li class="active"> List </li>
         </ol>
     </section>

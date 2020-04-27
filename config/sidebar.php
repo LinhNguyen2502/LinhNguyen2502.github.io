@@ -207,7 +207,7 @@ return [
 				'icon'  => 'fa-circle-o'
 			],
 			[
-				'name'  => 'Ql Page tĩnh',
+				'name'  => 'Ql chính sách',
 				'route' => 'admin.static.index',
 				'namespace' => 'pay-in',
 				'level'  => [1],
