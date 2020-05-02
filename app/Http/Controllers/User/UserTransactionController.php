@@ -15,7 +15,12 @@ class UserTransactionController extends Controller
         $transactions = Transaction::whereRaw(1)
             ->where('tst_user_id', \Auth::id());
 
-        if ($request->id) $transactions->where('id', $request->id);
+        if ($request->id)
+		{
+			$id = str_replace(['dh','DH'],'',$request->id);
+			$transactions->where('id', $id);
+		}
+
         if ($email = $request->email) {
             $transactions->where('tst_email', 'like', '%' . $email . '%');
         }
