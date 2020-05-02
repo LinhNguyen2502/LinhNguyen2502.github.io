@@ -46,6 +46,10 @@ class ResetPasswordController extends Controller
             $link = route('get.new_password',['email' => $account->email,'_token' => $token]);
 
             Mail::to($account->email)->send(new ResetPasswordEmail($link));
+			\Session::flash('toastr', [
+				'type'    => 'success',
+				'message' => 'Đường dẫn thay đổi mật khẩu đã được gửi tới email của bạn. Vui lòng kiểm tra email'
+			]);
 
             return redirect()->to('/');
         }
@@ -62,9 +66,7 @@ class ResetPasswordController extends Controller
             ->where('token',$token)
             ->first();
 
-    
         if (!$checkToken)  return redirect()->to('/');
-
 
         // Check xem time taoj token quá 3phút chưa 
         $now = Carbon::now();
@@ -89,6 +91,12 @@ class ResetPasswordController extends Controller
             ->update($data);
 
         \DB::table('password_resets')->where('email', $email)->delete();
+
+		\Session::flash('toastr', [
+			'type'    => 'success',
+			'message' => 'Cập nhật thành công. Vui lòng đăng nhập'
+		]);
+
         return redirect()->route('get.login');
     }
 }

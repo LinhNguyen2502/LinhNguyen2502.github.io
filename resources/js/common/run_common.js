@@ -108,6 +108,14 @@ var RunCommon = {
         $(".js-menu-cate").mouseenter(function(){
             $("#menu-main").show();
         })
+
+        $("#menu-main").hover(
+            function() {
+
+            }, function() {
+                $(this).hide();
+            }
+        );
     },
 
     fixTopMenu()

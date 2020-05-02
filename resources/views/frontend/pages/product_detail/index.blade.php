@@ -124,8 +124,8 @@
                         </div>
                         <div class="footer">
                             <p>
-                                <a href=""><i class="la la-camera"></i> Gửi ảnh</a>
-                                <a href="">Quy định đăng bình luận</a>
+{{--                                <a href=""><i class="la la-camera"></i> Gửi ảnh</a>--}}
+{{--                                <a href="">Quy định đăng bình luận</a>--}}
                             </p>
                             <button class=" {{ \Auth::id() ? 'js-save-comment' : 'js-show-login' }}">Gửi bình luận</button>
                         </div>

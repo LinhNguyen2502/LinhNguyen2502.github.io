@@ -7,11 +7,7 @@ use App\Services\ShoppingCartService\PayManager;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Carbon\Carbon;
-use App\Models\Transaction;
-use App\Models\Order;
-use App\Mail\TransactionSuccess;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 
 class ShoppingCartController extends Controller
 {
@@ -45,6 +41,27 @@ class ShoppingCartController extends Controller
 
             return redirect()->back();
         }
+
+        $check = $this->searchItemByIdCart($product->id);
+        if (($check + 1) > $product->pro_number )
+		{
+			\Session::flash('toastr', [
+				'type'    => 'error',
+				'message' => 'Số lượng sản phẩm không đủ'
+			]);
+
+			return redirect()->back();
+		}
+
+		if (($check + 1) > 10 )
+		{
+			\Session::flash('toastr', [
+				'type'    => 'error',
+				'message' => 'Mỗi sản phẩm chỉ mua được tối đa 10 sản phẩm'
+			]);
+
+			return redirect()->back();
+		}
 
         // 3. Thêm sản phẩm vào giỏ hàng
         \Cart::add([
@@ -135,6 +152,19 @@ class ShoppingCartController extends Controller
             ]);
         }
     }
+
+    protected function searchItemByIdCart($productID)
+	{
+		$shopping = \Cart::content();
+
+		foreach ($shopping as $item)
+		{
+			if ($item->id == $productID)
+				return $item->qty;
+		}
+
+		return 0;
+	}
 
     /**
      *  Xoá sản phẩm đơn hang
