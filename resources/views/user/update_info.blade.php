@@ -31,12 +31,12 @@
             </div>
             <div class="from-group">
                 <div class="upload-btn-wrapper">
-                    <button class="btn-upload">Upload a file</button>
+                    <button class="btn-upload">Tải avatar lên</button>
                     <input type="file" name="avatar" />
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-blue btn-md">Submit</button>
+            <button type="submit" class="btn btn-blue btn-md">Cập nhật</button>
         </form>
 
     </section>

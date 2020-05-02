@@ -1,7 +1,7 @@
 <?php
 return [
     [
-        'name' => 'Ql sản phẩm',
+        'name' => 'Sản phẩm',
         'list-check' => ['attribute','category','keyword','product','comment','rating'],
         'icon' => 'fa fa-database',
 		'level'  => [1,2],
@@ -28,7 +28,7 @@ return [
 //				'level'  => [1,2],
 //            ],
             [
-                'name'  => 'Sản phẩm',
+                'name'  => 'Sách',
                 'namespace' => 'product',
                 'route' => 'admin.product.index',
                 'icon'  => 'fa fa-database',
@@ -188,28 +188,28 @@ return [
 		'level'  => [1],
 		'sub'  => [
 			[
-				'name'  => 'Ql Admin',
+				'name'  => 'Tài khoản',
 				'route' => 'admin.account_admin.index',
 				'namespace' => 'pay-in',
 				'level'  => [1],
 				'icon'  => 'fa-circle-o'
 			],
 			[
-				'name'  => 'Ql Slide',
+				'name'  => 'Slide',
 				'route' => 'admin.slide.index',
 				'namespace' => 'pay-in',
 				'level'  => [1],
 				'icon'  => 'fa-circle-o'
 			],
 			[
-				'name'  => 'Ql sự kiện',
+				'name'  => 'Sự kiện',
 				'route' => 'admin.event.index',
 				'namespace' => 'pay-in',
 				'level'  => [1],
 				'icon'  => 'fa-circle-o'
 			],
 			[
-				'name'  => 'Ql chính sách',
+				'name'  => 'Chính sách',
 				'route' => 'admin.static.index',
 				'namespace' => 'pay-in',
 				'level'  => [1],

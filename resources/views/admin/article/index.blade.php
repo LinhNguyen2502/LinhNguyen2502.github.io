@@ -50,16 +50,16 @@
 
                                             <td>
                                                 @if ($article->a_hot == 1)
-                                                    <a href="{{ route('admin.article.hot', $article->id) }}" class="label label-info">Hot</a>
+                                                    <a href="{{ route('admin.article.hot', $article->id) }}" class="label label-info">Nổi bật</a>
                                                 @else
-                                                    <a href="{{ route('admin.article.hot', $article->id) }}" class="label label-default">None</a>
+                                                    <a href="{{ route('admin.article.hot', $article->id) }}" class="label label-default">Không</a>
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($article->a_active == 1)
-                                                    <a href="{{ route('admin.article.active', $article->id) }}" class="label label-info">Active</a>
+                                                    <a href="{{ route('admin.article.active', $article->id) }}" class="label label-info">Hiển thị</a>
                                                 @else
-                                                    <a href="{{ route('admin.article.active', $article->id) }}" class="label label-default">Hide</a>
+                                                    <a href="{{ route('admin.article.active', $article->id) }}" class="label label-default">Ẩn</a>
                                                 @endif
                                             </td>
                                             <td>{{  $article->created_at }}</td>

@@ -147,7 +147,7 @@ class ShoppingCartController extends Controller
             return response([
                 'totalMoney' => \Cart::subtotal(0),
                 'type'       => 'success',
-                'messages'    => 'Xoá sản phẩm khỏi đơn hàng thành công'
+                'messages'    => 'Xoá thành công'
             ]);
         }
     }
