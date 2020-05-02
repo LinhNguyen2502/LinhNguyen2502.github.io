@@ -2,7 +2,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Quản lý sản phẩm</h1>
+        <h1>Quản lý sách</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="{{  route('admin.product.index') }}"> Product</a></li>
@@ -26,9 +26,9 @@
                         </select>
 
                         <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> Search</button>
-                        <button type="submit" name="export" value="true" class="btn btn-info">
-                            <i class="fa fa-save"></i> Export
-                        </button>
+{{--                        <button type="submit" name="export" value="true" class="btn btn-info">--}}
+{{--                            <i class="fa fa-save"></i> Export--}}
+{{--                        </button>--}}
                         <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Thêm mới <i class="fa fa-plus"></i></a>
                     </form>
                 </div>
@@ -75,16 +75,16 @@
                                             </td>
                                             <td>
                                                 @if ($product->pro_hot == 1)
-                                                    <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-info">Hot</a>
+                                                    <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-info">Nổi bật</a>
                                                 @else 
-                                                    <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-default">None</a>
+                                                    <a href="{{ route('admin.product.hot', $product->id) }}" class="label label-default">Không</a>
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($product->pro_active == 1)
-                                                    <a href="{{ route('admin.product.active', $product->id) }}" class="label label-info">Active</a>
+                                                    <a href="{{ route('admin.product.active', $product->id) }}" class="label label-info">Hiển thị</a>
                                                 @else 
-                                                    <a href="{{ route('admin.product.active', $product->id) }}" class="label label-default">Hide</a>
+                                                    <a href="{{ route('admin.product.active', $product->id) }}" class="label label-default">Ẩn</a>
                                                 @endif
                                             </td>
                                             <td>{{  $product->created_at }}</td>

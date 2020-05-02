@@ -43,10 +43,16 @@
                     </ul>
                 </div>
                 <div class="item">
-                    <div class="title">Hệ thống của hàng</div>
-                    <ul>
-                        <li><a href="" title="" class="more">Xem tất cả hệ thống cửa hàng</a></li>
-                    </ul>
+                    <div class="title">Danh mục nổi bật</div>
+                    @if (isset($categoriesHot))
+                        <ul>
+                            @foreach($categoriesHot as $item)
+                                <li>
+                                    <a href="{{  route('get.category.list', $item->c_slug.'-'.$item->id) }}" title="{{ $item->c_name }}">{{ $item->c_name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
             </div>
             <div class="bot">
@@ -60,19 +66,6 @@
                 </div>
             </div>
         </div>
-        <div class="footer__right">
-            <div class="title">Fanpage của chúng tôi</div>
-            <div class="image">
-                {{-- <div class="fb-page"
-                      data-href="https://www.facebook.com/codedoan94"
-                      data-width="380"
-                      data-height="240"
-                      data-hide-cover="false"
-                      data-show-facepile="false" ></div> --}}
-            </div>
-        </div>
     </div>
 </div>
-{{-- <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=3205159929509308&autoLogAppEvents=1"></script> --}}
 
