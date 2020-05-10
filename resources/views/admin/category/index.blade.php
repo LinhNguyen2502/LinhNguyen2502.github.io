@@ -43,16 +43,16 @@
                                             </td>
                                             <td>
                                                 @if ($category->c_status == 1)
-                                                    <a href="{{ route('admin.category.active', $category->id) }}" class="label label-info">Show</a>
+                                                    <a href="{{ route('admin.category.active', $category->id) }}" class="label label-info">Hiển thị</a>
                                                 @else
-                                                    <a href="{{ route('admin.category.active', $category->id) }}" class="label label-default">Hide</a>
+                                                    <a href="{{ route('admin.category.active', $category->id) }}" class="label label-default">Ẩn</a>
                                                 @endif
                                             </td>
                                             <td>
                                                 @if ($category->c_hot == 1)
-                                                    <a href="{{ route('admin.category.hot', $category->id) }}" class="label label-info">Hot</a>
+                                                    <a href="{{ route('admin.category.hot', $category->id) }}" class="label label-info">Mặc định</a>
                                                 @else
-                                                    <a href="{{ route('admin.category.hot', $category->id) }}" class="label label-default">None</a>
+                                                    <a href="{{ route('admin.category.hot', $category->id) }}" class="label label-default">Nổi bật</a>
                                                 @endif
                                             </td>
                                             <td>{{  $category->created_at }}</td>

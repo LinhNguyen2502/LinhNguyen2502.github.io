@@ -1,10 +1,9 @@
 <div class="wrapper" id="wrapper" style="max-width: 780px;margin: 20px auto;padding: 5px 10px;">
 	<p class="ms" style="text-align: right">Mẫu số: 12000120121</p>
-	<h3 style="text-align: center;font-weight: bold">HOÁ ĐƠN BÁN HÀNG</h3>
 	<div style="display: flex">
 		<div class="col-3" style="width: 33.3333333%;float: left"></div>
 		<div class="col-3" style="width: 33.3333333%;float: left;text-align: center">
-			<p style="text-align: center;margin: 0">Phú Lưu</p>
+			<p style="text-align: center;margin: 0"></p>
 		</div>
 		<div class="col-3" style="width: 33.3333333%;float: left">
 			<p style="margin: 0">Ký hiệu .....</p>
@@ -59,7 +58,7 @@
 		<div class="col-5" style="padding-bottom: 100px; width: 50%;float: left;text-align: center">
 			<h3 style="margin:0">Người bán</h3>
 			<p style="margin: 0"><i>(Ký ghi rõ họ tên)</i></p>
-			<span style="margin-top: 50px;display: block"><i>{{ $transaction->tst_name }}</i></span>
+			<span style="margin-top: 50px;display: block"><i>SachOnline.VN</i></span>
 		</div>
 		<div style="clear: both"></div>
 	</div>
