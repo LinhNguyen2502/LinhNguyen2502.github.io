@@ -96,7 +96,7 @@
 
 @section('script')
     <div id="popup-transaction" class="modal text-center">
-        <div class="header">Hoá đơn mua hang</div>
+        {{-- <div class="header">Hoá đơn mua hang</div> --}}
         <div class="content">
 
         </div>
