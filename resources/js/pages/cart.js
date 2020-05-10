@@ -44,7 +44,6 @@ var Cart = {
                 url: URL,
                 async: false,
             }).done(function( results ) {
-                console.log(results)
                 $("#popup-transaction .content").html(results.html)
                 $("#popup-transaction").modal({
                     escapeClose: false,

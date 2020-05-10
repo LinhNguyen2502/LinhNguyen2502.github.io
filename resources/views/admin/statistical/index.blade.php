@@ -2,7 +2,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>{{ config('layouts.admin.title') }}</h1>
+        <h1>Quản lý thống kê</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         </ol>
@@ -377,15 +377,15 @@
             title: {
                 text: 'Biểu đồ doanh thu các ngày trong tháng'
             },
-            subtitle: {
-                text: 'Source: WorldClimate.com'
-            },
+            // subtitle: {
+            //     text: 'Source: WorldClimate.com'
+            // },
             xAxis: {
                 categories: listday
             },
             yAxis: {
                 title: {
-                    text: 'Temperature'
+                    text: 'Biển đồ giá trị'
                 },
                 labels: {
                     formatter: function () {
@@ -423,5 +423,6 @@
                 }
             ]
         });
+        $("body .highcharts-credits").remove();
     </script>
 @stop
