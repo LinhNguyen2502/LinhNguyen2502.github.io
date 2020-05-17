@@ -25,7 +25,7 @@ class AdminRequestArticle extends FormRequest
     {
         return [
             'a_name'          => 'required|max:190|min:3|unique:articles,a_name,'.$this->id,
-            'a_description'   => 'required',
+            // 'a_description'   => 'required',
             'a_menu_id'   => 'required',
             'a_content'       => 'required',
         ];
