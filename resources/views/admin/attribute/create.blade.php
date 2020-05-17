@@ -19,7 +19,7 @@
                          @csrf
                         <div class="col-sm-8">
                             <div class="form-group {{ $errors->first('atb_name') ? 'has-error' : '' }}">
-                                <label for="name">Name <span class="text-danger">(*)</span></label>
+                                <label for="name">Tên thông tin <span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control" name="atb_name"  placeholder="Name ...">
                                 @if ($errors->first('atb_name'))
                                     <span class="text-danger">{{ $errors->first('atb_name') }}</span>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="form-group {{ $errors->first('atb_type') ? 'has-error' : '' }}">
-                                <label for="name">Group <span class="text-danger">(*)</span></label>
+                                <label for="name">Nhóm thông tin <span class="text-danger">(*)</span></label>
                                 <select class="form-control" name="atb_type">
                                     @foreach($attribute_type as $key => $type)
                                         <option value="{{ $key }}">{{ $type['name'] }}</option>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="form-group  {{ $errors->first('atb_category_id') ? 'has-error' : '' }}">
-                                <label for="name">Category <span class="text-danger">(*)</span></label>
+                                <label for="name">Danh mục <span class="text-danger">(*)</span></label>
                                 <select class="form-control" name="atb_category_id">
                                     @foreach($categories as $item)
                                         <option value="1">{{ $item->c_name }}</option>
