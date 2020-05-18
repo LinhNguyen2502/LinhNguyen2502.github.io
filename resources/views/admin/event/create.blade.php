@@ -14,7 +14,7 @@
                          @csrf
                         <div class="col-sm-8">
                             <div class="form-group {{ $errors->first('e_name') ? 'has-error' : '' }}">
-                                <label for="name">Title <span class="text-danger">(*)</span></label>
+                                <label for="name">Tiêu đề <span class="text-danger">(*)</span></label>
                                 <input type="text" class="form-control" name="e_name"  placeholder="Name ...">
                                 @if ($errors->first('e_name'))
                                     <span class="text-danger">{{ $errors->first('e_name') }}</span>

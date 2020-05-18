@@ -102,13 +102,15 @@ class AdminTransactionController extends Controller
                 case 'process':
                     $transaction->tst_status = 2;
                     break;
+
                 case 'success':
                     $transaction->tst_status = 3;
-                    
+                    $this->syncDecrementProduct($id);
                     break;
+
                 case 'cancel':
                     $transaction->tst_status = -1;
-                    # code...
+//                    $this->syncIncrementProduct($id);
                     break;
             }
 			$transaction->tst_admin_id = get_data_user('admins');
@@ -122,4 +124,34 @@ class AdminTransactionController extends Controller
 
         return redirect()->back();
     }
+
+    protected function syncIncrementProduct($transactionID)
+	{
+		$orders = Order::where('od_transaction_id', $transactionID)
+			->get();
+		if ($orders)
+		{
+			foreach ($orders as $order)
+			{
+				\DB::table('products')
+					->where('id', $order->od_product_id)
+					->increment("pro_number",$order->od_qty);
+			}
+		}
+	}
+
+	protected function syncDecrementProduct($transactionID)
+	{
+		$orders = Order::where('od_transaction_id', $transactionID)
+			->get();
+		if ($orders)
+		{
+			foreach ($orders as $order)
+			{
+				\DB::table('products')
+					->where('id', $order->od_product_id)
+					->decrement("pro_number",$order->od_qty);
+			}
+		}
+	}
 }
