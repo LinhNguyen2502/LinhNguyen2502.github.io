@@ -80,30 +80,31 @@
                                             <td>{{  $transaction->created_at }}</td>
                                             <td>
                                                 <a data-id="{{  $transaction->id }}" href="{{ route('ajax.admin.transaction.detail', $transaction->id) }}" class="btn btn-xs btn-info js-preview-transaction"><i class="fa fa-eye"></i> View</a>
+                                                @if ($transaction->tst_status != 3 && $transaction->tst_status != -1)
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-success btn-xs">Action</button>
+                                                        <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                            <span class="caret"></span>
+                                                            <span class="sr-only">Toggle Dropdown</span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
 
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-success btn-xs">Action</button>
-                                                    <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        <span class="caret"></span>
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li>
-                                                            <a href="{{  route('admin.transaction.delete', $transaction->id) }}" class="js-delete-confirm"><i class="fa fa-trash"></i> Delete</a>
-                                                        </li>
-                                                        <li class="divider"></li>
-                                                        <li>
-                                                            <a href="{{ route('admin.action.transaction',['process', $transaction->id]) }}" ><i class="fa fa-ban"></i> Đang bàn giao</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('admin.action.transaction',['success', $transaction->id]) }}" ><i class="fa fa-ban"></i> Đã bàn giao</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{{ route('admin.action.transaction',['cancel', $transaction->id]) }}" ><i class="fa fa-ban"></i> Huỷ</a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
+                                                                <li>
+                                                                    <a href="{{  route('admin.transaction.delete', $transaction->id) }}" class="js-delete-confirm"><i class="fa fa-trash"></i> Delete</a>
+                                                                </li>
+                                                                <li class="divider"></li>
+                                                                <li>
+                                                                    <a href="{{ route('admin.action.transaction',['process', $transaction->id]) }}" ><i class="fa fa-tint"></i> Đang bàn giao</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('admin.action.transaction',['success', $transaction->id]) }}" ><i class="fa fa-check-circle"></i> Đã bàn giao</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="{{ route('admin.action.transaction',['cancel', $transaction->id]) }}" ><i class="fa fa-ban"></i> Huỷ</a>
+                                                                </li>
+                                                        </ul>
+                                                    </div>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
