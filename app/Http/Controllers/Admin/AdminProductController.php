@@ -17,7 +17,6 @@ class AdminProductController extends Controller
 {
     public function index(Request $request)
     {
-        // dd(\Hash::make('12345678'));
         $products = Product::with('category:id,c_name');
         if ($id = $request->id) $products->where('id', $id);
         if ($name = $request->name) $products->where('pro_name','like', '%'.$name.'%');
@@ -50,7 +49,7 @@ class AdminProductController extends Controller
 
     public function store(AdminRequestProduct $request)
     {
-        $data = $request->except('_token','pro_avatar','attribute','keywords','file','pro_sale');
+        $data = $request->except('_token','pro_avatar','attribute','keywords','file','pro_sale','pro_file');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['created_at']   = Carbon::now();
         if ($request->pro_sale)
@@ -62,7 +61,13 @@ class AdminProductController extends Controller
             $image = upload_image('pro_avatar');
             if ($image['code'] == 1) 
                 $data['pro_avatar'] = $image['name'];
-        } 
+        }
+
+        if ($request->pro_file) {
+            $image = upload_image('pro_file');
+            if ($image['code'] == 1)
+                $data['pro_file'] = $image['name'];
+        }
 
         $id = Product::insertGetId($data);
         if ($id) {
@@ -118,7 +123,7 @@ class AdminProductController extends Controller
     public function update(AdminRequestProduct $request, $id)
     {
         $product           = Product::find($id);
-        $data               = $request->except('_token','pro_avatar','attribute','keywords','file','pro_sale');
+        $data               = $request->except('_token','pro_avatar','attribute','keywords','file','pro_sale','pro_file');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['updated_at'] = Carbon::now();
 		if ($request->pro_sale)
@@ -130,7 +135,13 @@ class AdminProductController extends Controller
             $image = upload_image('pro_avatar');
             if ($image['code'] == 1) 
                 $data['pro_avatar'] = $image['name'];
-        } 
+        }
+
+        if ($request->pro_file) {
+            $image = upload_image('pro_file');
+            if ($image['code'] == 1)
+                $data['pro_file'] = $image['name'];
+        }
 
         $update = $product->update($data);
 

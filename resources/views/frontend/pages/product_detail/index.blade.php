@@ -17,7 +17,7 @@
                 </li>
 
                 <li>
-                    <a itemprop="url" href="" title="Đồng hồ Diamond D"><span itemprop="title">{{ $product->pro_name }}</span></a>
+                    <a itemprop="url" href="" title=""><span itemprop="title">{{ $product->pro_name }}</span></a>
                 </li>
 
             </ul>
@@ -64,13 +64,13 @@
                                 <a href="{{ route('get.shopping.add', $product->id) }}" title=""
                                    onclick="add_cart_detail('17617',0);" class="muangay">
                                     <span>Mua ngay</span>
-                                    <span>Hotline: 1800.6005</span>
+                                    <!-- <span>Hotline: 1800.6005</span> -->
                                 </a>
                                 <a href="{{ route('ajax_get.user.add_favourite', $product->id) }}"
                                    title="Thêm sản phẩm yêu thích"
                                    class="muatragop  {{ !\Auth::id() ? 'js-show-login' : 'js-add-favourite' }}">
                                     <span>Yêu thích</span>
-                                    <span>Sản phẩm</span>
+                                    <!-- <span>Sản phẩm</span> -->
                                 </a>
                             </div>
                             <div class="infomation">
@@ -113,6 +113,9 @@
             <div class="" style="margin-bottom: 10px">
                 <h4 class="reviews-title"><b>Nội dung</b></h4>
                 {!! $product->pro_content !!}
+                @if($product->pro_link)
+                <iframe src="{{ $product->pro_link }}" width="100%" height="1000"></iframe>
+                @endif
             </div>
             @include('frontend.pages.product_detail.include._inc_ratings')
             <div class="comments">

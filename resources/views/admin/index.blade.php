@@ -12,7 +12,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Thông tin sinh viên</h3>
+                <h3 class="box-title">Thông tin nhân lực</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse">
@@ -20,15 +20,6 @@
                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
                         <i class="fa fa-times"></i></button>
                     </div>
-                </div>
-                <div class="box-body">
-                    <ul>
-                        <li>Họ Tên: {{ $admin->name }}</li>
-                        <li>Lớp : {{ $admin->class }}</li>
-                        <li>Số điện thoại : {{ $admin->phone }}</li>
-                        <li>Email : {{ $admin->email }}</li>
-                        <li>Địa chỉ : {{ $admin->address }}</li>
-                    </ul>
                 </div>
 
             </div>

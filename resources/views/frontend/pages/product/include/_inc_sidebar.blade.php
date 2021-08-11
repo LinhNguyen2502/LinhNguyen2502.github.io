@@ -4,7 +4,7 @@
     }
 </style>
 <div class="filter-sidebar">
-    @if (isset($attributes))
+    {{-- @if (isset($attributes))
         @foreach($attributes as $key => $attribute)
             <div class="item">
                 <div class="item__title">{{ $key }}</div>
@@ -22,8 +22,31 @@
                 </div>
             </div>
         @endforeach
-    @endif
+    @endif --}}
     <div class="item">
+        <div class="item__title">Danh mục</div>
+        <div class="item__content ratings">
+            <ul>
+                @foreach($categories as $item)
+                    <li>
+                        <a href="{{  route('get.category.list', $item->c_slug.'-'.$item->id) }}"
+                           title="{{  $item->c_name }}" class="js-open-menu">
+                            {{-- <img src="{{ pare_url_file($item->c_avatar) }}" alt="{{ $item->c_name }}"> --}}
+                            {{  $item->c_name }}
+                            {{-- <span></span> --}}
+                            @if (isset($item->children) && count($item->children))
+                                {{-- <span class="fa fa-angle-right"></span> --}}
+                            @else
+                                {{-- <span></span> --}}
+                            @endif
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+    {{-- <div class="item">
         <div class="item__title">Đánh giá</div>
         <div class="item__content ratings">
             <ul>
@@ -40,5 +63,5 @@
                 @endfor
             </ul>
         </div>
-    </div>
+    </div> --}}
 </div>

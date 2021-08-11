@@ -133,7 +133,18 @@
         });
         Route::group(['prefix' => 'inventory'], function(){
             Route::get('import','AdminInventoryController@getWarehousing')->name('admin.inventory.warehousing');
-            Route::get('export','AdminInventoryController@getOutOfStock')->name('admin.inventory.out_of_stock');
+            Route::get('import/add','AdminInventoryController@add')->name('admin.warehousing.add');
+            Route::post('import/add','AdminInventoryController@store');
+            Route::get('import/update/{id}','AdminInventoryController@edit')->name('admin.warehousing.update');
+            Route::post('import/update/{id}','AdminInventoryController@update');
+            Route::get('import/delete/{id}','AdminInventoryController@delete')->name('admin.warehousing.delete');
+
+            Route::get('export','AdminInventoryController@getOutOfStock')->name('admin.export.out_of_stock');
+            Route::get('export/add','AdminInventoryController@exportAdd')->name('admin.export.add');
+            Route::post('export/add','AdminInventoryController@exportStore');
+            Route::get('export/update/{id}','AdminInventoryController@exportEdit')->name('admin.export.update');
+            Route::post('export/update/{id}','AdminInventoryController@exportUpdate');
+            Route::get('export/delete/{id}','AdminInventoryController@exportDelete')->name('admin.export.delete');
         });
 
         Route::group(['prefix' => 'menu'], function(){

@@ -15,7 +15,7 @@ return [
             'process' => PayTransferService::class
         ],
         'online'   => [
-            'process' => PayOnlinePaymentService::class
+            'process' => PayTransferService::class
         ]
     ]
 ];

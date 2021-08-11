@@ -12,11 +12,13 @@
                     <a itemprop="url" href="/" title="Home"><span itemprop="title">Trang chủ</span></a>
                 </li>
                 <li >
-                    <a itemprop="url" href="{{ route('get.product.list') }}" title="Đồng hồ chính hãng"><span itemprop="title">Đồng hồ chính hãng</span></a>
+                    <a itemprop="url" href="{{ route('get.product.list') }}" title="Sản phẩm"><span itemprop="title">Sản phẩm</span></a>
                 </li>
-
+                <li >
+                    <a itemprop="url" href="#" title="Đánh giá"><span itemprop="title">Đánh giá</span></a>
+                </li>
                 <li>
-                    <a itemprop="url" href="" title="Đồng hồ Diamond D"><span itemprop="title">Đồng hồ Diamond D</span></a>
+                    <a itemprop="url" href="{{ route('get.product.detail',$product->pro_slug . '-'.$product->id ) }}" title="{{ $product->pro_name }}"><span itemprop="title">{{ $product->pro_name }}</span></a>
                 </li>
             </ul>
         </div>

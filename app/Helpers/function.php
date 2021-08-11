@@ -24,7 +24,7 @@ if (!function_exists('upload_image')) {
 
         // kiem tra dinh dang file
         if (!$extend)
-            $extend = ['png', 'jpg', 'jpeg', 'webp'];
+            $extend = ['png', 'jpg', 'jpeg', 'webp','pdf','docx'];
 
         if (!in_array($ext, $extend))
             return $data['code'] = 0;

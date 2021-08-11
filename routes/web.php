@@ -62,6 +62,7 @@ Route::group(['namespace' => 'Frontend'], function() {
         Route::get('update/{id}','ShoppingCartController@update')->name('ajax_get.shopping.update');
         Route::get('theo-doi-don-hang','TrackOrderController@index')->name('get.track.transaction');
         Route::post('pay','ShoppingCartController@postPay')->name('post.shopping.pay');
+        Route::get('hook','ShoppingCartController@hookCallback')->name('get.shopping.callback');
     });
 
     //Comment

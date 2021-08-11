@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Transaction;
 use App\Services\ShoppingCartService\PayManager;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Carbon\Carbon;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
 
 class ShoppingCartController extends Controller
 {
+    private $vnp_TmnCode = "MYRB6QXH"; //Mã website tại VNPAY
+    private $vnp_HashSecret = "MWOUCAKEEKZRNUVPZDUIVKKJIGIMCMOE"; //Chuỗi bí mật
+    private $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+    private $vnp_Returnurl = 'http://laravel_bansach.abc/shopping/hook';
+    protected $idTransaction = 0;
+
     public function index()
     {
         $shopping = \Cart::content();
@@ -105,13 +114,25 @@ class ShoppingCartController extends Controller
         // Lấy thông tin đơn hàng
         $shopping = \Cart::content();
         $data['options']['orders'] = $shopping;
-
+        // dd($options->request);
         $options['drive'] = $request->pay;
-        try{
-            \Cart::destroy();
-            new PayManager($data, $shopping, $options);
-        }catch (\Exception $exception){
-            Log::error("[Errors pay shopping cart]" .$exception->getMessage());
+        
+        if($request->pay == 'transfer')
+        {
+            $data['tst_type'] = 2;
+            return $this->payOnline($request, $data,$shopping, $options);
+        }else{
+            try{
+                \Cart::destroy();
+                new PayManager($data, $shopping, $options);
+            }catch (\Exception $exception){
+                Log::error("[Errors pay shopping cart]" .$exception->getMessage());
+            }
+
+            \Session::flash('toastr', [
+                'type'    => 'success',
+                'message' => 'Đơn hàng của bạn đã được lưu'
+            ]);
         }
 
         \Session::flash('toastr', [
@@ -120,6 +141,35 @@ class ShoppingCartController extends Controller
         ]);
 
         return redirect()->to('/');
+    }
+
+    public function hookCallback(Request $request)
+    {
+
+        $transactionID = $request->vnp_TxnRef;
+        $transaction = Transaction::find($transactionID);
+
+        if ($request->vnp_ResponseCode == '00')
+        {
+            if ($transaction)
+            {
+                \Cart::destroy();
+                $transaction->tst_status = Transaction::STATUS_SUCCESS;
+                $transaction->save();
+                \Session::flash('toastr', [
+                    'type'    => 'success',
+                    'message' => 'Thanh toán thành công'
+                ]);
+
+                return redirect()->to('/');
+            }
+
+            return redirect()->to('/')->with('danger','Mã đơn hàng không tồn tại');
+        }
+
+        if ($transaction)  $transaction->delete();
+
+        return  redirect()->to('/');
     }
 
     public function update(Request $request, $id)
@@ -153,6 +203,69 @@ class ShoppingCartController extends Controller
         }
     }
 
+    public function payOnline(Request $request, $data, $shopping, $options)
+    {
+        // Sau khi xử lý xong bắt đầu xử lý online
+        error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+
+        $dataTransaction     = $this->getDataTransaction($data);
+
+        $this->idTransaction = Transaction::insertGetId($dataTransaction);
+
+        $orders              = $data['options']['orders'] ?? [];
+        if ($this->idTransaction)
+            $this->syncOrder($orders, $this->idTransaction);
+
+        // tham so dau vao
+        $inputData = array(
+            "vnp_Version"    => "2.0.0",
+            "vnp_TmnCode"    => $this->vnp_TmnCode,
+            "vnp_Amount"     => $dataTransaction['tst_total_money'] * 100, // so tien thanh toan,
+            "vnp_Command"    => "pay",
+            "vnp_CreateDate" => date('YmdHis'),
+            "vnp_CurrCode"   => "VND",
+            "vnp_IpAddr"     => $_SERVER['REMOTE_ADDR'], // IP
+            "vnp_Locale"     => 'vi', // ngon ngu,
+            "vnp_OrderInfo"  => 'Thanh toán Onlinr', // noi dung thanh toan,
+            "vnp_OrderType"  => 'billpayment',    // loai hinh thanh toan
+            "vnp_ReturnUrl"  => $this->vnp_Returnurl,   // duong dan tra ve
+            "vnp_TxnRef"     => $this->idTransaction, // ma don hang,
+        );
+
+        if ($request->bank_code) {
+            $inputData['vnp_BankCode'] = $request->bank_code;
+        }
+        ksort($inputData);
+        $query    = "";
+        $i        = 0;
+        $hashdata = "";
+        foreach ($inputData as $key => $value) {
+            if ($i == 1) {
+                $hashdata .= '&' . $key . "=" . $value;
+            } else {
+                $hashdata .= $key . "=" . $value;
+                $i        = 1;
+            }
+            $query .= urlencode($key) . "=" . urlencode($value) . '&';
+        }
+
+
+        $vnp_Url = $this->vnp_Url . "?" . $query;
+        if ($this->vnp_HashSecret) {
+            $vnpSecureHash = hash('sha256', $this->vnp_HashSecret . $hashdata);
+            $vnp_Url       .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+        }
+
+        $returnData = array(
+            'code'    => '00',
+            'message' => 'success',
+            'data'    => $vnp_Url
+        );
+
+        return redirect()->to($returnData['data']);
+    }
+
+
     protected function searchItemByIdCart($productID)
 	{
 		$shopping = \Cart::content();
@@ -180,5 +293,67 @@ class ShoppingCartController extends Controller
                 'messages'    => 'Xoá thành công'
             ]);
         }
+    }
+
+    public function getDataTransaction($data)
+    {
+        return [
+            "tst_name"        => Arr::get($data, 'tst_name'),
+            "tst_phone"       => Arr::get($data, 'tst_phone'),
+            "tst_address"     => Arr::get($data, 'tst_address'),
+            "tst_email"       => Arr::get($data, 'tst_email'),
+            "tst_note"        => Arr::get($data, 'tst_note'),
+            "tst_user_id"     => Arr::get($data, 'tst_user_id'),
+            "tst_total_money" => Arr::get($data, 'tst_total_money'),
+            "tst_type"        => Arr::get($data, 'tst_type'),
+            "created_at"      => Carbon::now()
+        ];
+    }
+
+    /**
+     * @param $productId
+     * Tăn số lượng sản phẩm
+     */
+    public function incrementPayProduct($productId)
+    {
+        \DB::table('products')
+            ->where('id', $productId)
+            ->increment("pro_pay");
+    }
+
+    /**
+     * @param $orders
+     * @param $transactionID
+     * Lưu chi tiết đơn hàng
+     */
+    public function syncOrder($orders, $transactionID)
+    {
+        if ($orders) {
+            foreach ($orders as $key => $item) {
+                $order               = $this->getDataOrder($item, $transactionID);
+                $order['created_at'] = Carbon::now();
+                //1. Lưu chi tiết đơn hàng
+                Order::insert($order);
+
+                //2. Tăng pay ( số lượt mua của sản phẩm dó)
+                $this->incrementPayProduct($item->id);
+            }
+        }
+    }
+
+    /**
+     * @param $order
+     * @param $transactionID
+     * @return array
+     */
+    public function getDataOrder($order, $transactionID)
+    {
+        return [
+            'od_transaction_id' => $transactionID,
+            'od_product_id'     => $order->id,
+            'od_sale'           => $order->options->sale,
+            'od_qty'            => $order->qty,
+            'od_price'          => $order->price
+        ];
     }
 }

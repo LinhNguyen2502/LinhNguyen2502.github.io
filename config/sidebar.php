@@ -28,7 +28,7 @@ return [
 //				'level'  => [1,2],
 //            ],
             [
-                'name'  => 'Sách',
+                'name'  => 'Sản phẩm',
                 'namespace' => 'product',
                 'route' => 'admin.product.index',
                 'icon'  => 'fa fa-database',
@@ -158,7 +158,7 @@ return [
 			[
 				'name'  => 'Xuất kho',
 				'namespace' => 'export',
-				'route' => 'admin.inventory.out_of_stock',
+				'route' => 'admin.export.out_of_stock',
 				'icon'  => 'fa-opencart',
 				'level'  => [1,2],
 			],
@@ -224,4 +224,5 @@ return [
 			],
 		]
 	],
+    
 ];

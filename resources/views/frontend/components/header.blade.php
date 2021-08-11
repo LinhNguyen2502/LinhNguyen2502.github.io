@@ -43,14 +43,14 @@
             <!--Thay đổi-->
             <div class="logo">
                 <a href="/" class="desktop">
-                    <img src="{{ url('images/logo.png') }}" style="height: 35px;" alt="Home">
+                    <img src="{{ url('images/fahasa-logo.png') }}" style="height: 35px;" alt="Home">
                 </a>
                 <span class="menu js-menu-cate"><i class="fa fa-list-ul"></i> </span>
             </div>
             <div class="search">
 
                 <form action="{{ $link_search ?? route('get.product.list',['k' => Request::get('k')]) }}" role="search" method="GET">
-                    <input type="text" name="k" value="{{ Request::get('k') }}" class="form-control" placeholder="Tìm kiếm sản phẩm ...">
+                    <input type="text" name="k" value="{{ Request::get('k') }}" class="form-control" placeholder="Tìm kiếm ...">
                     <button type="submit" class="btnSearch">
                         <i class="fa fa-search"></i>
                         <span>Tìm kiếm</span>

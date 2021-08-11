@@ -56,12 +56,12 @@
         </div> --}}
         <div class="product-one">
             <div class="top">
-                <a href="#" title="" class="main-title">SÁCH BÁN CHẠY</a>
-                {{-- <ul class="top__tab">
+                <a href="#" title="" class="main-title">XU HƯỚNG MUA SẮM</a>
+                <!-- {{-- <ul class="top__tab">
                     <li data-id="proNewst1" class="active"><a href="javascript://" title="">Tất cả</a></li>
                     <li data-id="proNewst2"><a href="javascript://" title=""><h2>Đồng hồ nam</h2></a></li>
                     <li data-id="proNewst3"><a href="javascript://" title=""><h2>Đồng hồ nữ</h2></a></li>
-                </ul> --}}
+                </ul> --}} -->
             </div>
             <div class="bot">
 {{--                @for($i = 1 ; $i <= 5; $i ++)--}}
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 @endif
-                <div class="right js-product-one owl-carousel owl-theme owl-custom">
+                <div class="right js-product-one owl-carousel owl-theme owl-custom" style="width: inherit;">
                     @foreach($productsPay as $product)
                         <div class="item">
                             @include('frontend.components.product_item',[ 'product' => $product])
@@ -104,7 +104,7 @@
 
         <div class="product-three">
             <div class="top">
-                <a href="#" title="" class="main-title">SÁCH MỚI RA MẮT</a>
+                <a href="#" title="" class="main-title">SẢN PHẨM MỚI</a>
             </div>
             <div class="bot">
                 <div class="left">
@@ -130,7 +130,7 @@
 
         <div class="product-two">
             <div class="top">
-                <a href="#" class="main-title">SÁCH NỔI BẬT</a>
+                <a href="#" class="main-title">SẢN PHẨM NỔI BẬT</a>
             </div>
             <div class="bot">
                 @if (isset($productsHot))

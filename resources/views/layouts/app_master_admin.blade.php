@@ -164,10 +164,10 @@
                 @yield('content')
             </div>
             <!-- /.content-wrapper -->
-            <footer class="main-footer">
+            <!-- <footer class="main-footer">
         
-                <strong>Đồ án tốt nghiệp - 2020</strong>
-            </footer>
+                <strong>Đồ án tốt nghiệp </strong>
+            </footer> -->
             <div class="control-sidebar-bg"></div>
         </div>
         <!-- ./wrapper -->

@@ -156,11 +156,28 @@
                 <div style="position:relative;"> <a class="btn btn-primary" href="javascript:;"> Choose File... <input type="file" style="position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:&quot;progid:DXImageTransform.Microsoft.Alpha(Opacity=0)&quot;;opacity:0;background-color:transparent;color:transparent;" name="pro_avatar" size="40" class="js-upload"> </a> &nbsp; <span class="label label-info" id="upload-file-info"></span> </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12 clearfix">
-        <div class="box-footer text-center">
-            <a href="{{ route('admin.product.index') }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Cancel</a>
-            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> {{ isset($product) ? "Cập nhật" : "Thêm mới" }} </button> </div>
+        <div class="box box-warning">
+            <div class="box-header with-border">
+                <h3 class="box-title">Link online</h3>
+            </div>
+            <div class="box-body ">
+                <div class="form-group ">
+                    <textarea name="pro_link" class="form-control textarea" cols="5" rows="2" >{{ $product->pro_link ?? '' }}</textarea>
+                    @if ($errors->first('pro_link'))
+                        <span class="text-danger">{{ $errors->first('pro_link') }}</span>
+                    @endif
+                </div>
+                <div class="form-group ">
+                    <input type="file" name="pro_file" class="form-control">
+                    @if(isset($product->pro_file))
+                        <a href="">{{ $product->pro_file }}</a>
+                    @endif
+                </div>
+                <div class="box-footer text-center">
+                    <a href="{{ route('admin.product.index') }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Cancel</a>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> {{ isset($product) ? "Cập nhật" : "Thêm mới" }} </button> </div>
+            </div>
+        </div>
     </div>
 </form>
 
